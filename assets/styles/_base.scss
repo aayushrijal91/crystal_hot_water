@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    border: none;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: $font-body;
+    color: $dark;
+    font-weight: 400;
+    margin: 0 auto;
+    background-color: $white;
+    font-size: 1rem;
+    overflow-x: hidden;
+    line-height: 1.25;
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn {
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+    border-radius: 4px;
+
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    &.bordered {
+        border-width: 2px;
+    }
+}
+
+.description {
+    font-size: 1.25rem;
+    line-height: 1.55;
+
+    p {
+        margin-bottom: 24px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1rem !important;
+    }
+}
+
+.highlight-primary {
+    span {
+        color: $primary;
+    }
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #8d1116;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c94146;
+}
+
+//Go To Top
+#return-to-top {
+    position: fixed;
+    bottom: 95px;
+    right: 13px;
+    z-index: 9;
+    background: $primary;
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#return-to-top img {
+    margin: 0;
+    position: relative;
+    left: 13px;
+    top: 10px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#return-to-top:hover img {
+    top: 4px;
+}
