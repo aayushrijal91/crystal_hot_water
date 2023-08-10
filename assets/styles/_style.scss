@@ -3,80 +3,8 @@
 }
 
 main.homepage {
-    section.getStartedForm {
+    section.getStartedFormWrapper {
         background: linear-gradient(180deg, $light 0 20%, $white 20% 100%);
-        margin-bottom: 94px;
-
-        .form-wrapper {
-            border-radius: 9px;
-            border: 1px solid $dark-grey;
-            background: $white;
-            padding: 60px 40px;
-
-            .mainForm {
-                .form-input-wrapper {
-                    border-radius: 3px;
-                    border: 1px solid rgba(0, 0, 0, 0.09);
-                    background: $white;
-                    display: flex;
-                    align-items: center;
-                    padding: 0 24px;
-
-                    .icon {
-                        height: 17px;
-                        width: 17px;
-                    }
-
-                    .form-control {
-                        border: none;
-
-                        &.input {
-                            height: 62px;
-                        }
-
-                        &:focus {
-                            outline: none;
-                            box-shadow: none;
-                        }
-                    }
-                }
-
-                button {
-                    height: 62px;
-                }
-            }
-
-            .form-cta {
-                height: 359px;
-                border-radius: 9px;
-                overflow: hidden;
-                position: relative;
-                display: flex;
-                justify-content: center;
-
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                }
-
-                .caption {
-                    position: absolute;
-                    bottom: 0;
-                    background: $white;
-                    border-radius: 16px 16px 0 0;
-                    height: 54px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 1.125rem;
-                    font-weight: 700;
-                    width: 60%;
-                    padding: 6px;
-                }
-            }
-        }
     }
 
     section.section_1 {
@@ -114,6 +42,81 @@ main.homepage {
                     line-height: 1.6;
                 }
             }
+        }
+    }
+}
+
+main.our-locations-page {
+    section.areas {
+        padding-top: 111px;
+
+        ul.areasWrapper {
+            padding-inline-start: 0;
+            margin-bottom: 0;
+
+            @include media-breakpoint-up(md) {
+                column-count: 2;
+                column-gap: 75px;
+            }
+
+            @include media-breakpoint-up(lg) {
+                column-count: 3;
+            }
+
+            @include media-breakpoint-up(xl) {
+                column-gap: 205px;
+            }
+
+            li.border {
+                border-bottom: 2px solid $white !important;
+                list-style: none;
+
+                @include media-breakpoint-down(lg) {
+                    display: none;
+                }
+            }
+
+            li.areaCharacterGrouping {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                list-style: none;
+                border-bottom: 2px solid $white;
+                padding: 30px 0;
+
+                ul.arealist {
+                    margin-top: 34px;
+                    margin-bottom: 0;
+                    padding-inline-start: 0;
+
+                    li {
+                        list-style: none;
+                        padding: 0.25rem 0;
+
+                        a {
+                            color: $grey;
+
+                            &:hover {
+                                color: $secondary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+main.shop-page {
+    section.shop {
+        .product-card {
+            border: 0.5px solid #A4A4A4;
+            height: 100%;
+            padding: 31px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: space-between;
         }
     }
 }

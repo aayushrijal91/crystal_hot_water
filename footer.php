@@ -27,13 +27,14 @@
                 <div class="col-2">
                     <p class="fw-700 pb-4">Popular Links</p>
 
-                    <ul class="menu_list">
-                        <li><a href="" class="text-white">Home</a></li>
-                        <li><a href="" class="text-white">About Us</a></li>
-                        <li><a href="" class="text-white">Locations</a></li>
-                        <li><a href="" class="text-white">Shop</a></li>
-                        <li><a href="" class="text-white">Contact Us</a></li>
-                    </ul>
+                    <?php wp_nav_menu(array(
+                            'menu' => 'Footer Popular Links',
+                            'item_class' => 'nav-item',
+                            'link_class' => 'nav-link',
+                            'container_class' => 'footer_menu',
+                            'container_id' => '',
+                            'menu_class' => 'menu_list'
+                        )); ?>
                 </div>
 
                 <div class="col-5">
