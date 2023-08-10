@@ -4,6 +4,11 @@ jQuery(function ($) {
     var Engine = {
         ui: {
             misc: function () {
+                $('.brands_slider').slick({
+                    slidesToShow: 11,
+                    slidesToScroll: 1,
+                    arrow: false,
+                })
             }, // end misc
         }, // end ui
         //utils: {
