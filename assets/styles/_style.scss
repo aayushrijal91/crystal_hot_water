@@ -2,40 +2,6 @@
 @return url("../images/" + $path + "/" + $file) no-repeat;
 }
 
-section.homepageBanner {
-    background: $light;
-    padding: 120px 0 101px;
-
-    .cta {
-        height: 100%;
-        border-radius: 7px;
-        overflow: hidden;
-        position: relative;
-
-        .cta-content {
-            background: $primary;
-            border-radius: 8px;
-            position: absolute;
-            color: $white;
-            width: 100%;
-            bottom: 0;
-            min-height: 90px;
-            text-align: center;
-            text-transform: capitalize;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 34px 0 18px;
-
-            .cta-icon {
-                position: absolute;
-                top: -28px;
-            }
-        }
-    }
-}
-
 main.homepage {
     section.getStartedForm {
         background: linear-gradient(180deg, $light 0 20%, $white 20% 100%);
@@ -121,19 +87,6 @@ main.homepage {
         padding: 128px 0;
     }
 
-    section.section_2 {
-        padding: 96px 0;
-
-        .animated-image-wrapper {
-            min-height: 498px;
-
-            .animated-image {
-                position: absolute;
-                mix-blend-mode: screen;
-            }
-        }
-    }
-
     section.section_3 {
         padding: 12px 128px;
         box-shadow: 0 11px $secondary;
@@ -160,32 +113,6 @@ main.homepage {
                     padding-top: 18px;
                     line-height: 1.6;
                 }
-            }
-        }
-    }
-
-    section.section_4 {
-        border-radius: 7px;
-        overflow: hidden;
-        padding: 118px 0;
-        background: imgUrl('homepage-section-4.png') right center #edeff6;
-        background-size: contain;
-    }
-
-    section.brands {
-        .brands_slider {
-            padding: 36px 0;
-
-            .slick-track {
-                display: flex;
-            }
-
-            .slick-slide {
-                height: inherit;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0 10px;
             }
         }
     }
