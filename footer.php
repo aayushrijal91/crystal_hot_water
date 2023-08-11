@@ -11,7 +11,7 @@
                     <div class="row g-2">
                         <div class="col-6">
                             <button class="w-100 bg-transparent">
-                                <a href="#" class="btn btn-secondary fw-700 d-flex w-100 text-white">Contact Our Team</a>
+                                <a href="<?= get_site_url() ?>/contact-us" class="btn btn-secondary fw-700 d-flex w-100 text-white">Contact Our Team</a>
                             </button>
                         </div>
                         <div class="col-6">
@@ -28,28 +28,40 @@
                     <p class="fw-700 pb-4">Popular Links</p>
 
                     <?php wp_nav_menu(array(
-                            'menu' => 'Footer Popular Links',
-                            'item_class' => 'nav-item',
-                            'link_class' => 'nav-link',
-                            'container_class' => 'footer_menu',
-                            'container_id' => '',
-                            'menu_class' => 'menu_list'
-                        )); ?>
+                        'menu' => 'Footer Popular Links',
+                        'item_class' => 'nav-item',
+                        'link_class' => 'nav-link',
+                        'container_class' => 'footer_menu',
+                        'container_id' => '',
+                        'menu_class' => 'menu_list'
+                    )); ?>
                 </div>
 
                 <div class="col-5">
                     <p class="fw-700 pb-4">Our Services</p>
 
                     <ul class="menu_list columns-2">
-                        <li><a href="" class="text-white">Hot Water Installation</a></li>
-                        <li><a href="" class="text-white">Hot water replacement</a></li>
-                        <li><a href="" class="text-white">Hot water repairs</a></li>
-                        <li><a href="" class="text-white">Emergency hot water repairs</a></li>
-                        <li><a href="" class="text-white">Gas leak Detection</a></li>
-                        <li><a href="" class="text-white">Retractable garden hose installation</a></li>
-                        <li><a href="" class="text-white">Water filters</a></li>
-                        <li><a href="" class="text-white">Room heaters (Supply and Install)</a></li>
-                        <li><a href="" class="text-white">Zip & Billi Filter water</a></li>
+                        <?php
+                        $args = array(
+                            'post_type'      => 'page',
+                            'posts_per_page' => -1,
+                            'order'          => 'ASC',
+                            'orderby'        => 'publish_date',
+                            'meta_query' => array(
+                                array(
+                                    'key' => '_wp_page_template',
+                                    'value' => array('page-templates/inner-service.php'),
+                                ),
+                            )
+                        );
+                        $the_query = new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                            while ($the_query->have_posts()) : $the_query->the_post();
+                        ?>
+                                <li><a href="<?= get_the_permalink() ?>" class="text-white text-capitalize"><?= get_the_title() ?></a></li>
+                        <?php endwhile;
+                        endif;
+                        wp_reset_query(); ?>
                     </ul>
                 </div>
 
@@ -69,12 +81,14 @@
                 <div class="col-2">
                     <p class="fw-700 pb-4">Support</p>
 
-                    <ul class="menu_list">
-                        <li><a href="" class="text-white">Contact</a></li>
-                        <li><a href="" class="text-white">Privacy Policy</a></li>
-                        <li><a href="" class="text-white">Refund Policy</a></li>
-                        <li><a href="" class="text-white">Terms & Conditions</a></li>
-                    </ul>
+                    <?php wp_nav_menu(array(
+                        'menu' => 'Footer Support',
+                        'item_class' => 'nav-item',
+                        'link_class' => 'nav-link',
+                        'container_class' => 'footer_menu',
+                        'container_id' => '',
+                        'menu_class' => 'menu_list'
+                    )); ?>
                 </div>
             </div>
 
