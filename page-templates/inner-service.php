@@ -15,7 +15,7 @@ get_template_part('parts/section', 'banner');
     if (isset($introduction['title'])) : ?>
         <section class="introduction py-7">
             <div class="container">
-                <div class="row gy-5 gx-xl-5">
+                <div class="row gy-5 gx-xl-5 align-items-center">
                     <div class="col-6">
                         <div class="bg-grey overflow-hidden h-100 rounded-11">
                             <?php if (isset($introduction['image']['url'])) : ?>

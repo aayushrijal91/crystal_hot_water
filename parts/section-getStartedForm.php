@@ -2,8 +2,8 @@
     <section class="part-getStartedForm">
         <div class="row gy-5">
             <div class="col-4">
-                <h3 class="highlight-primary text-center fs-48 fw-800">Get <span>Started Today</span></h3>
-                <p class="text-center text-grey">Talk to us at Crystal Hot Water today to <strong class="text-dark">get the hot water system you deserve!</strong></p>
+                <h3 class="highlight-primary text-center fs-48 fw-800 text-capitalize">Get <span>Started Today</span></h3>
+                <p class="text-center text-grey py-2">Talk to us at Crystal Hot Water today to <strong class="text-dark">get the hot water system you deserve!</strong></p>
                 <form action="" class="mainForm pt-4">
                     <div class="row gy-3 gx-2">
                         <div class="col-12">

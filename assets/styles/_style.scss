@@ -210,6 +210,99 @@ main.inner-service-page {
     }
 }
 
+main.membership-page {
+    section.section_1 {
+        background: imgUrl('priority-access.jpg') center;
+        background-size: cover;
+        border-radius: 11px;
+        overflow: hidden;
+        padding: 103px 110px 85px;
+    }
+
+    section.signupForm {
+        border-radius: 9px;
+        border: 1px solid #E8E8E8;
+        background: $white;
+        padding: 60px 40px;
+
+        .mainForm {
+            .form-input-wrapper {
+                border-radius: 3px;
+                border: 1px solid rgba(0, 0, 0, 0.09);
+                background: $white;
+                display: flex;
+                align-items: center;
+                padding: 0 24px;
+
+                .icon {
+                    height: 17px;
+                    width: 17px;
+                }
+
+                .wpcf7-form-control-wrap {
+                    flex-grow: 1;
+                }
+
+                .form-control {
+                    border: none;
+
+                    &.input {
+                        height: 62px;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            button {
+                height: 62px;
+            }
+        }
+
+        .form-cta {
+            height: 359px;
+            border-radius: 9px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .caption {
+                position: absolute;
+                bottom: 0;
+                background: $white;
+                border-radius: 16px 16px 0 0;
+                height: 54px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.125rem;
+                font-weight: 700;
+                width: 60%;
+                padding: 6px;
+            }
+        }
+    }
+}
+
+main.careers-page {
+    padding: 115px 0;
+
+    .form {
+        margin-top: 35px;
+    }
+}
+
 footer {
     section.footer-top {
         padding: 40px 0;
