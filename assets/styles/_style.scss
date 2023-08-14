@@ -123,7 +123,6 @@ main.shop-page {
 
 main.service-page {
     padding: 127px 0;
-    border-bottom: 8px solid $secondary;
 
     section.no-risk {
         padding: 12px 128px;
@@ -299,11 +298,52 @@ main.careers-page {
     padding: 115px 0;
 
     .form {
-        margin-top: 35px;
+        label {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .form-control {
+            &.input {
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid $white;
+                border-radius: 0;
+                color: $white;
+                padding: 0;
+                height: 40px;
+                font-size: 20px;
+
+                &::placeholder {
+                    color: $white;
+                    opacity: 0.5;
+                }
+            }
+
+            &.attach {
+                background: transparent;
+                border: 1px dotted $white;
+                border-radius: 0;
+                height: 54px;
+            }
+
+            &.submit {
+                height: 75px;
+
+            }
+        }
+
+        span.wpcf7-not-valid-tip {
+            color: $white;
+        }
     }
 }
 
+main.contact-us-page {}
+
 footer {
+    border-top: 8px solid $secondary;
+
     section.footer-top {
         padding: 40px 0;
 

@@ -14,30 +14,38 @@ get_template_part('parts/section', 'homepageBanner');
         <?php get_template_part('parts/section', 'getStartedForm'); ?>
     </section>
 
-    <section class="section_1">
-        <div class="container">
-            <div class="row">
-                <div class="col-5">
-                    <h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
-                        <span>24/7 Hot Water</span> Service In Sydney & Nearby Areas
-                    </h2>
-                    <p class="fw-500 py-3">Crystal Hot Water is here to help you with hot water installation in all of Sydney! <strong>With over 30 years of experience.</strong></p>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <button class="w-100 bg-transparent">
-                                <a href="#" class="btn btn-primary fw-700 d-flex w-100 text-white">Contact Our Team</a>
-                            </button>
-                        </div>
-                        <div class="col-6">
-                            <button class="w-100 bg-transparent">
-                                <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-secondary fw-700 d-flex w-100 text-white"><?= get_field('phone_number', 'options') ?></a>
-                            </button>
+    <?php
+    $section_1 = get_field('section_1');
+    if (!empty($section_1['title'])) : ?>
+        <section class="section_1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                        <h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
+                            <?= $section_1['title'] ?>
+                        </h2>
+                        <?php if (!empty($section_1['description'])) : ?>
+                            <article class="fw-500 py-3 description"><?= $section_1['description'] ?></article>
+                        <?php endif; ?>
+                        <div class="row g-2">
+                            <?php if (isset($section_1['button'])) : ?>
+                                <div class="col-6">
+                                    <button class="w-100 bg-transparent">
+                                        <a href="<?= $section_1['button']['url'] ?>" target="<?= $section_1['button']['target'] ?>" class="btn btn-primary fw-700 d-flex w-100 text-white"><?= $section_1['button']['title'] ?></a>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+                            <div class="col-6">
+                                <button class="w-100 bg-transparent">
+                                    <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-secondary fw-700 d-flex w-100 text-white"><?= get_field('phone_number', 'options') ?></a>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
 
     <?php get_template_part('parts/section', 'about') ?>
 

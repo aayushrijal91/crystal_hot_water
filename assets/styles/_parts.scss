@@ -126,13 +126,27 @@ section.part-getStartedForm {
             }
         }
 
+        .wpcf7 input[type="file"] {
+            display: none;
+        }
+
+        #file_attachment_label {
+            width: 100%;
+            padding: 16px 24px;
+            cursor: pointer;
+        }
+
+        .wpcf7-form-control-wrap {
+            flex-grow: 1;
+        }
+
         button {
             height: 62px;
         }
     }
 
     .form-cta {
-        height: 359px;
+        height: 363px;
         border-radius: 9px;
         overflow: hidden;
         position: relative;
@@ -168,7 +182,6 @@ section.part-getStartedForm {
 
     .accordion-card {
         border-bottom: 2px solid #F1F1F1;
-        // padding: 0 38px;
         line-height: 1.625;
 
         @include media-breakpoint-down(xl) {
@@ -196,16 +209,6 @@ section.part-getStartedForm {
 
             @include media-breakpoint-up(md) {
                 font-size: 1.5rem; // 24px
-            }
-
-            .plusminus {
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
-                // height: 44px;
-                // width: 44px;
-                // border: 3px solid $secondary;
-                // border-radius: 50%;
             }
 
             &.active {
