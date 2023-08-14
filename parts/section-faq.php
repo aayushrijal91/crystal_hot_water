@@ -1,13 +1,14 @@
-<section class="faqs pt-8 pb-10">
-    <div class="container">
-        <h2 class="fs-60 fw-800 text-center highlight-primary text-capitalize pb-7">Our <span>Frequently Asked Questions</span></h2>
-        <div class="accordion-container">
-            <?php if (have_rows('faqs')) :
+<?php if (have_rows('faqs')) : ?>
+    <section class="faqs pt-8 pb-10">
+        <div class="container">
+            <h2 class="fs-60 fw-800 text-center highlight-primary text-capitalize pb-7">Our <span>Frequently Asked Questions</span></h2>
+            <div class="accordion-container">
+                <?php
                 $index = 1;
                 while (have_rows('faqs')) : the_row();
                     $question = get_sub_field('question');
                     $answer = get_sub_field('answer');
-            ?>
+                ?>
                     <div class="accordion-card">
                         <div class="accordion-head<?= ($index == 1) ? " active" : ""; ?>">
                             <div class="row g-0 w-100 justify-content-between">
@@ -35,11 +36,11 @@
                             <?= $answer ?>
                         </div>
                     </div>
-            <?php
+                <?php
                     $index++;
                 endwhile;
-            endif;
-            ?>
+                ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>

@@ -1,7 +1,8 @@
 <?php $banner = get_field('banner'); ?>
+
 <section class="banner">
     <div class="container">
-        <h1 class="highlight-primary fs-60 fw-800 text-center lh-1"><?= !empty($banner['title']) ? $banner['title'] : get_the_title(); ?></h1>
+        <h1 class="highlight-primary fs-60 fw-800 text-center lh-1 <?= is_page_template('page-templates/suburb.php') ? 'text-primary' : '' ?>"><?= !empty($banner['title']) ? $banner['title'] : get_the_title(); ?></h1>
         <?php if (!empty($banner['subtitle'])) : ?>
             <article class="subtitle text-center text-grey pt-3"><?= $banner['subtitle'] ?></article>
         <?php endif; ?>
