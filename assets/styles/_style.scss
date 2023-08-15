@@ -40,7 +40,7 @@ main.homepage {
 
         .homepage-services {
             padding: 28px 0;
-            
+
             @include media-breakpoint-up(md) {
                 padding: 28px 0 111px;
             }
@@ -372,12 +372,18 @@ footer {
             list-style: none;
             padding-inline-start: 0;
 
-            &.columns-2 {
-                column-count: 2;
+            &.columns-md-2 {
+                @include media-breakpoint-up(md) {
+                    column-count: 2;
+                }
             }
 
             li {
                 padding: 8px 0;
+
+                @include media-breakpoint-down(sm) {
+                    padding: 4px 0;
+                }
             }
         }
     }

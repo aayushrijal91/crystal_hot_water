@@ -59,7 +59,7 @@ section.banner {
 
 section.part-about {
     padding: 0 0 45px;
-    
+
     @include media-breakpoint-up(md) {
         padding: 96px 0;
     }
@@ -99,9 +99,14 @@ section.part-brands {
 section.part-deservingHotWater {
     border-radius: 7px;
     overflow: hidden;
-    padding: 118px 0;
-    background: imgUrl('homepage-section-4.png') right center #edeff6;
+    background: #edeff6;
     background-size: contain;
+    padding-top: 45px;
+
+    @include media-breakpoint-up(md) {
+        background: imgUrl('homepage-section-4.png') right center #edeff6;
+        padding: 118px 0;
+    }
 }
 
 section.part-getStartedForm {
@@ -259,5 +264,19 @@ section.part-getStartedForm {
 
     &.active {
         display: block;
+    }
+}
+
+section.slide-nav {
+    background: $primary;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 100000;
+    transition: 0.2s all;
+    transform: translatex(-100%);
+
+    &.active {
+        transform: translateX(0);
     }
 }

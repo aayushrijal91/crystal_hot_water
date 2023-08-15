@@ -55,8 +55,16 @@ jQuery(function ($) {
                         slidesToScroll: 1,
                         arrows: false,
                         autoplay: true,
-                    })
+                    });
                 }
+
+                $("#open-slide-nav").on('click', function() {
+                    $('.slide-nav').addClass('active');
+                });
+
+                $("#close-slidenav").on('click', function() {
+                    $('.slide-nav').removeClass('active');
+                })
             }, // end misc
         }, // end ui
         //utils: {
