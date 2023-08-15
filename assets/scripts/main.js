@@ -8,6 +8,29 @@ jQuery(function ($) {
                     slidesToShow: 11,
                     slidesToScroll: 1,
                     arrow: false,
+                    responsive: [
+                        {
+                            breakpoint: 1100,
+                            settings: {
+                                slidesToShow: 6,
+                                autoplay: true,
+                            }
+                        },
+                        {
+                            breakpoint: 900,
+                            settings: {
+                                slidesToShow: 5,
+                                autoplay: true,
+                            }
+                        },
+                        {
+                            breakpoint: 540,
+                            settings: {
+                                slidesToShow: 3,
+                                autoplay: true,
+                            }
+                        }
+                    ]
                 });
                 
                 $(".accordion-head").on('click', function () {

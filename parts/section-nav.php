@@ -67,8 +67,8 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-auto col-md-4">
-                    <div class="row align-items-center gx-lg-2 d-none d-md-flex">
+                <div class="col-auto col-md-6 col-lg-4">
+                    <div class="row align-items-center gx-md-2 d-none d-md-flex">
                         <div class="col-6">
                             <a href="<?= get_site_url() ?>/contact-us" class="btn btn-white fw-700 d-flex w-100 text-primary">
                                 Contact Our Team

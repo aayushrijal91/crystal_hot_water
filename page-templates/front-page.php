@@ -20,7 +20,7 @@ get_template_part('parts/section', 'homepageBanner');
         <section class="section_1">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-12 col-md-8 col-lg-7 col-xl-5">
                         <h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
                             <?= $section_1['title'] ?>
                         </h2>
@@ -55,7 +55,7 @@ get_template_part('parts/section', 'homepageBanner');
             $no_risk_guarantee = get_field('no_risk_guarantee', 'options');
             if (!empty($no_risk_guarantee['title'])) : ?>
                 <div class="row align-items-center top-row">
-                    <div class="col-12 col-md-6 order-2 order-md-1">
+                    <div class="col-12 col-lg-6 order-2 order-lg-1">
                         <h2 class="fs-60 text-white text-capitalize fw-800 lh-1">
                             <?= get_field('no_risk_guarantee', 'options')['title'] ?>
                         </h2>
@@ -80,7 +80,7 @@ get_template_part('parts/section', 'homepageBanner');
                         </div>
                     </div>
                     <?php if (isset($no_risk_guarantee['image']['url'])) : ?>
-                        <div class="col-12 col-md-6 order-1 order-md-2">
+                        <div class="col-12 col-lg-6 order-1 order-lg-2">
                             <img src="<?= $no_risk_guarantee['image']['url'] ?>" alt="<?= $no_risk_guarantee['image']['alt'] ?>">
                         </div>
                     <?php endif; ?>
@@ -90,13 +90,13 @@ get_template_part('parts/section', 'homepageBanner');
             <?php if (have_rows('no_risk_guarantee', 'options')) :
                 while (have_rows('no_risk_guarantee', 'options')) : the_row();
                     if (have_rows('services', 'options')) : ?>
-                        <div class="row gx-2 gy-3 homepage-services">
+                        <div class="row gx-2 gy-3 homepage-services justify-content-center">
                             <?php while (have_rows('services', 'options')) : the_row();
                                 $title = get_sub_field('title');
                                 $description = get_sub_field('description');
                                 $link = get_sub_field('link');
                             ?>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-6 col-lg-4">
                                     <article class="service-box bg-primary-dark text-white rounded-8 d-flex flex-column gap-5 justify-content-between h-100">
                                         <div>
                                             <h4 class="fs-40 fw-800 lh-1"><?= $title ?></h4>

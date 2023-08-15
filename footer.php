@@ -7,7 +7,7 @@
                         <img src="<?= get_field('footer', 'options')['logo']['url'] ?>" alt="<?= bloginfo('name') ?>">
                     </a>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="row g-2">
                         <?php if (isset(get_field('footer', 'options')['button']['url'])) : ?>
                             <div class="col-6">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="row py-6 text-white text-center text-md-start gy-5">
-                <div class="col-md-2">
+                <div class="col-md-4 col-lg-2">
                     <p class="fw-700 pb-3 pb-md-4">Popular Links</p>
 
                     <?php wp_nav_menu(array(
@@ -40,7 +40,7 @@
                     )); ?>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-8 col-lg-5">
                     <p class="fw-700 pb-3 pb-md-4">Our Services</p>
 
                     <ul class="menu_list columns-md-2">
@@ -68,7 +68,7 @@
                     </ul>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-6 col-lg-3">
                     <p class="fw-700 pb-3 pb-md-4">Shop</p>
 
                     <ul class="menu_list">
@@ -81,7 +81,7 @@
                     </ul>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-4 col-lg-2">
                     <p class="fw-700 pb-3 pb-md-4">Support</p>
 
                     <?php wp_nav_menu(array(
@@ -100,7 +100,7 @@
                     if (have_rows('faq', 'options')) : ?>
                         <div class="row gx-3 gy-4">
                             <?php while (have_rows('faq', 'options')) : the_row(); ?>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-lg-4">
                                     <div class="bg-primary-light rounded-7 px-4 pt-5 pb-4 h-100 text-white position-relative">
                                         <svg class="question-icon" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="20.5827" cy="20.5104" r="20.4982" fill="#DD1E26" />
@@ -133,19 +133,19 @@
     <section class="footer-bottom">
         <div class="container">
             <div class="row align-items-center justify-content-between gy-4">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-lg-4">
                     <div class="row align-items-center justify-content-center gy-4">
                         <div class="col-auto col-md-4">
                             <a href="<?= get_site_url() ?>">
                                 <img src="<?= get_field('footer', 'options')['logo']['url'] ?>" alt="<?= bloginfo('name') ?>">
                             </a>
                         </div>
-                        <div class="col-md-8">
-                            <p class="text-white fs-14 text-center text-md-start">Copyright <?= date('Y') ?> <span class="px-4">|</span> <?= bloginfo('name') ?></p>
+                        <div class="col-12 col-lg-8">
+                            <p class="text-white fs-14 text-center text-lg-start">Copyright <?= date('Y') ?> <span class="px-4">|</span> <?= bloginfo('name') ?></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-auto">
+                <div class="col-12 col-lg-auto">
                     <div class="row justify-content-center gx-4">
                         <?php
                         if (have_rows('footer', 'options')) :

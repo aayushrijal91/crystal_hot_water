@@ -100,11 +100,15 @@ section.part-deservingHotWater {
     border-radius: 7px;
     overflow: hidden;
     background: #edeff6;
-    background-size: contain;
     padding-top: 45px;
-
-    @include media-breakpoint-up(md) {
+    
+    @include media-breakpoint-up(lg) {
+        padding: 64px 0;
+    }
+    
+    @include media-breakpoint-up(xl) {
         background: imgUrl('homepage-section-4.png') right center #edeff6;
+        background-size: contain;
         padding: 118px 0;
     }
 }
@@ -114,6 +118,10 @@ section.part-getStartedForm {
     border: 1px solid $dark-grey;
     background: $white;
     padding: 60px 40px;
+
+    @include media-breakpoint-down(lg) {
+        padding: 60px 24px;
+    }
 
     @include media-breakpoint-down(sm) {
         padding: 49px 24px;
