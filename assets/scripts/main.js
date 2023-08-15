@@ -39,6 +39,24 @@ jQuery(function ($) {
                         $('#file_attachment_label').html(fileName.substring(0, 50));
                     }
                 });
+
+                if($(window).width() < 540) {
+                    $('#global_cta_slider').slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        autoplay: true,
+                        centerMode: true,
+                        centerPadding: "40px"
+                    });
+
+                    $('#form_cta_slider').slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        autoplay: true,
+                    })
+                }
             }, // end misc
         }, // end ui
         //utils: {

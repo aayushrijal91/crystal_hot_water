@@ -25,115 +25,79 @@ $the_query = new WP_Query($args);
 <main class="service-page">
     <div class="container">
         <section class="no-risk bg-primary rounded-11">
-            <div class="row align-items-center top-row">
-                <div class="col-6">
-                    <h2 class="fs-60 text-white text-capitalize fw-800 lh-1">
-                        Our Services are insured with a No-risk guarantee
-                    </h2>
-                    <p class="py-4 text-white">
-                        Talk to us at Crystal Hot Water today to <strong>get the hot water<br /> system you deserve!</strong>
-                    </p>
-                    <div class="row g-2">
-                        <div class="col-5">
-                            <button class="w-100 bg-transparent">
-                                <a href="#" class="btn btn-white fw-700 d-flex w-100 text-primary">Contact Our Team</a>
-                            </button>
-                        </div>
-                        <div class="col-5">
-                            <button class="w-100 bg-transparent">
-                                <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= get_field('phone_number', 'options') ?></a>
-                            </button>
+            <?php
+            $no_risk_guarantee = get_field('no_risk_guarantee', 'options');
+            if (!empty($no_risk_guarantee['title'])) : ?>
+                <div class="row align-items-center top-row">
+                    <div class="col-6">
+                        <h2 class="fs-60 text-white text-capitalize fw-800 lh-1">
+                            <?= get_field('no_risk_guarantee', 'options')['title'] ?>
+                        </h2>
+                        <?php if (!empty($no_risk_guarantee['description'])) : ?>
+                            <article class="py-4 text-white">
+                                <?= $no_risk_guarantee['description'] ?>
+                            </article>
+                        <?php endif; ?>
+                        <div class="row g-2">
+                            <?php if (isset($no_risk_guarantee['button'])) : ?>
+                                <div class="col-5">
+                                    <button class="w-100 bg-transparent">
+                                        <a href="<?= $no_risk_guarantee['button']['url'] ?>" target="<?= $no_risk_guarantee['button']['target'] ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= $no_risk_guarantee['button']['title'] ?></a>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+                            <div class="col-5">
+                                <button class="w-100 bg-transparent">
+                                    <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= get_field('phone_number', 'options') ?></a>
+                                </button>
+                            </div>
                         </div>
                     </div>
+                    <?php if (isset($no_risk_guarantee['image']['url'])) : ?>
+                        <div class="col-6">
+                            <img src="<?= $no_risk_guarantee['image']['url'] ?>" alt="<?= $no_risk_guarantee['image']['alt'] ?>">
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <div class="col-6">
-                    <img src="http://localhost/crystal_hot_water/wp-content/uploads/2023/08/no-risk-guarantee.png" alt="">
-                </div>
-            </div>
+            <?php endif; ?>
 
-            <div class="row gx-2 gy-3 homepage-services">
-                <div class="col-4">
-                    <article class="service-box bg-primary-dark text-white rounded-8 d-flex flex-column gap-5 justify-content-between h-100">
-                        <div>
-                            <h4 class="fs-40 fw-800 lh-1">Repair</h4>
-                            <p>
-                                Every machine fails eventually, and that includes hot water heaters. With how crucial hot water is to our daily lives, having your hot water heater go down is undoubtedly a huge inconvenience. You need to have it repaired as soon as possible.
-                            </p>
-                            <p>
-                                Crystal Hot Water’s repair team is available 24/7 to address any and all issues you might be experiencing with your hot water heater. We work swiftly with precise solutions no matter the time of day or night, restoring the flow of hot water on your property fast.
-                            </p>
+            <?php if (have_rows('no_risk_guarantee', 'options')) :
+                while (have_rows('no_risk_guarantee', 'options')) : the_row();
+                    if (have_rows('services', 'options')) : ?>
+                        <div class="row gx-2 gy-3 homepage-services">
+                            <?php while (have_rows('services', 'options')) : the_row();
+                                $title = get_sub_field('title');
+                                $description = get_sub_field('description');
+                                $link = get_sub_field('link');
+                            ?>
+                                <div class="col-4">
+                                    <article class="service-box bg-primary-dark text-white rounded-8 d-flex flex-column gap-5 justify-content-between h-100">
+                                        <div>
+                                            <h4 class="fs-40 fw-800 lh-1"><?= $title ?></h4>
+                                            <?= $description ?>
+                                        </div>
+                                        <div class="row align-items-center gx-3">
+                                            <div class="col">
+                                                <button class="w-100 bg-transparent">
+                                                    <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= get_field('phone_number', 'options') ?></a>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button class="w-100 bg-transparent">
+                                                    <a href="<?= $link['url'] ?>" target="<?= $link['target'] ?>" class="btn btn-transparent fw-700 d-flex w-100 text-white px-1 gap-2">See Our Services <svg xmlns="http://www.w3.org/2000/svg" width="31" height="16" viewBox="0 0 31 16" fill="none">
+                                                            <path d="M30.0553 8.95882C30.4458 8.56829 30.4458 7.93513 30.0553 7.5446L23.6913 1.18064C23.3008 0.790119 22.6676 0.790119 22.2771 1.18064C21.8866 1.57117 21.8866 2.20433 22.2771 2.59486L27.934 8.25171L22.2771 13.9086C21.8866 14.2991 21.8866 14.9323 22.2771 15.3228C22.6676 15.7133 23.3008 15.7133 23.6913 15.3228L30.0553 8.95882ZM0.450684 9.25171L29.3482 9.25171L29.3482 7.25171L0.450684 7.25171L0.450684 9.25171Z" fill="white" />
+                                                        </svg></a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            <?php endwhile; ?>
                         </div>
-                        <div class="row align-items-center gx-3">
-                            <div class="col">
-                                <button class="w-100 bg-transparent">
-                                    <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= get_field('phone_number', 'options') ?></a>
-                                </button>
-                            </div>
-                            <div class="col-auto">
-                                <button class="w-100 bg-transparent">
-                                    <a href="tel:<?= get_site_url() ?>/service" class="btn btn-transparent fw-700 d-flex w-100 text-white px-1 gap-2">See Our Services <svg xmlns="http://www.w3.org/2000/svg" width="31" height="16" viewBox="0 0 31 16" fill="none">
-                                            <path d="M30.0553 8.95882C30.4458 8.56829 30.4458 7.93513 30.0553 7.5446L23.6913 1.18064C23.3008 0.790119 22.6676 0.790119 22.2771 1.18064C21.8866 1.57117 21.8866 2.20433 22.2771 2.59486L27.934 8.25171L22.2771 13.9086C21.8866 14.2991 21.8866 14.9323 22.2771 15.3228C22.6676 15.7133 23.3008 15.7133 23.6913 15.3228L30.0553 8.95882ZM0.450684 9.25171L29.3482 9.25171L29.3482 7.25171L0.450684 7.25171L0.450684 9.25171Z" fill="white" />
-                                        </svg></a>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-4">
-                    <article class="service-box bg-primary-dark text-white rounded-8 d-flex flex-column gap-5 justify-content-between h-100">
-                        <div>
-                            <h4 class="fs-40 fw-800 lh-1">Sales</h4>
-                            <p>
-                                Are you looking for a new hot water heater for a new home, or replacing an old one during a renovation? A good hot water experience starts from buying the right heater: a high quality product from a reputable brand, and the right specifications for your needs.
-                            </p>
-                            <p>
-                                Crystal Hot Water is partnered with big hot water heater brands to provide a large selection of effective and affordable hot water heaters. If you’re not sure which product is right for you, our friendly and dedicated team is always ready to offer advice to help you reach the right decision.
-                            </p>
-                        </div>
-                        <div class="row align-items-center gx-3">
-                            <div class="col">
-                                <button class="w-100 bg-transparent">
-                                    <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= get_field('phone_number', 'options') ?></a>
-                                </button>
-                            </div>
-                            <div class="col-auto">
-                                <button class="w-100 bg-transparent">
-                                    <a href="tel:<?= get_site_url() ?>/service" class="btn btn-transparent fw-700 d-flex w-100 text-white px-1 gap-2">See Our Services <svg xmlns="http://www.w3.org/2000/svg" width="31" height="16" viewBox="0 0 31 16" fill="none">
-                                            <path d="M30.0553 8.95882C30.4458 8.56829 30.4458 7.93513 30.0553 7.5446L23.6913 1.18064C23.3008 0.790119 22.6676 0.790119 22.2771 1.18064C21.8866 1.57117 21.8866 2.20433 22.2771 2.59486L27.934 8.25171L22.2771 13.9086C21.8866 14.2991 21.8866 14.9323 22.2771 15.3228C22.6676 15.7133 23.3008 15.7133 23.6913 15.3228L30.0553 8.95882ZM0.450684 9.25171L29.3482 9.25171L29.3482 7.25171L0.450684 7.25171L0.450684 9.25171Z" fill="white" />
-                                        </svg></a>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-4">
-                    <article class="service-box bg-primary-dark text-white rounded-8 d-flex flex-column gap-5 justify-content-between h-100">
-                        <div>
-                            <h4 class="fs-40 fw-800 lh-1">Servicing</h4>
-                            <p>
-                                Hot water heaters need periodic maintenance to stay operational for years to come. Periodic servicing not only extends the lifespan of any hot water heater, but also prevents you from having to spend big money on repairing or replacing it.
-                            </p>
-                            <p>
-                                Crystal Hot Water has a team of dedicated plumbers who can come service your hot water heater regularly. We recommend having a technician look at your appliance at least once a year in order to maintain smooth operation.
-                            </p>
-                        </div>
-                        <div class="row align-items-center gx-3">
-                            <div class="col">
-                                <button class="w-100 bg-transparent">
-                                    <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= get_field('phone_number', 'options') ?></a>
-                                </button>
-                            </div>
-                            <div class="col-auto">
-                                <button class="w-100 bg-transparent">
-                                    <a href="tel:<?= get_site_url() ?>/service" class="btn btn-transparent fw-700 d-flex w-100 text-white px-1 gap-2">See Our Services <svg xmlns="http://www.w3.org/2000/svg" width="31" height="16" viewBox="0 0 31 16" fill="none">
-                                            <path d="M30.0553 8.95882C30.4458 8.56829 30.4458 7.93513 30.0553 7.5446L23.6913 1.18064C23.3008 0.790119 22.6676 0.790119 22.2771 1.18064C21.8866 1.57117 21.8866 2.20433 22.2771 2.59486L27.934 8.25171L22.2771 13.9086C21.8866 14.2991 21.8866 14.9323 22.2771 15.3228C22.6676 15.7133 23.3008 15.7133 23.6913 15.3228L30.0553 8.95882ZM0.450684 9.25171L29.3482 9.25171L29.3482 7.25171L0.450684 7.25171L0.450684 9.25171Z" fill="white" />
-                                        </svg></a>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
+            <?php endif;
+                endwhile;
+            endif;
+            ?>
         </section>
 
         <?php if ($the_query->have_posts()) : ?>

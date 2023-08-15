@@ -1,8 +1,8 @@
 <?php $banner = get_field('banner'); ?>
 <section class="homepageBanner">
     <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-4">
+        <div class="row justify-content-between gy-5">
+            <div class="col-12 col-md-4">
                 <h1 class="fs-60 fw-800 lh-1 text-capitalize highlight-primary ls-n0_9"><?= !empty($banner['title']) ? $banner['title'] : get_the_title() ?></h1>
                 <?php if (!empty($banner['subtitle'])) : ?>
                     <article class="subtitle text-grey py-4"><?= $banner['subtitle'] ?></article>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-7">
+            <div class="col-12 col-md-7">
                 <?php get_template_part('parts/section', 'globalCta'); ?>
             </div>
         </div>

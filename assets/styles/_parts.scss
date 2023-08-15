@@ -9,6 +9,10 @@ header {
 section.homepageBanner {
     background: $light;
     padding: 120px 0 101px;
+
+    @include media-breakpoint-down(sm) {
+        padding: 120px 0 45px;
+    }
 }
 
 section.banner {
@@ -54,10 +58,18 @@ section.banner {
 }
 
 section.part-about {
-    padding: 96px 0;
+    padding: 0 0 45px;
+    
+    @include media-breakpoint-up(md) {
+        padding: 96px 0;
+    }
 
     .animated-image-wrapper {
-        min-height: 498px;
+        min-height: 250px;
+
+        @include media-breakpoint-up(md) {
+            min-height: 498px;
+        }
 
         .animated-image {
             position: absolute;
@@ -97,6 +109,10 @@ section.part-getStartedForm {
     border: 1px solid $dark-grey;
     background: $white;
     padding: 60px 40px;
+
+    @include media-breakpoint-down(sm) {
+        padding: 49px 24px;
+    }
 
     .mainForm {
         .form-input-wrapper {
