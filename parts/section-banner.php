@@ -7,7 +7,7 @@
             <article class="subtitle text-center text-grey pt-3"><?= $banner['subtitle'] ?></article>
         <?php endif; ?>
         <div class="row justify-content-center pt-4">
-            <div class="col-4">
+            <div class="col-11 col-md-6 col-lg-4">
                 <div class="row justify-content-center g-2">
                     <?php if (!empty($banner['button'])) : ?>
                         <div class="col-6">

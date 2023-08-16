@@ -29,7 +29,7 @@ get_template_part('parts/section', 'banner');
                                 $image = get_sub_field('image');
                                 $title = get_sub_field('title');
                             ?>
-                                <div class="col-4">
+                                <div class="col-md-6 col-lg-4">
                                     <div class="form-cta">
                                         <img src="<?= $image['url'] ?>" alt="<?= $image['alt'] ?>">
                                         <div class="caption">

@@ -1,7 +1,7 @@
 <?php if (have_rows('faqs')) : ?>
-    <section class="faqs pt-8 pb-10">
+    <section class="faqs py-6 py-md-7 pt-lg-8 pb-lg-10">
         <div class="container">
-            <h2 class="fs-60 fw-800 text-center highlight-primary text-capitalize pb-7">Our <span>Frequently Asked Questions</span></h2>
+            <h2 class="fs-60 fw-800 text-center highlight-primary text-capitalize pb-4 pb-md-5 pb-lg-7">Our <span>Frequently Asked Questions</span></h2>
             <div class="accordion-container">
                 <?php
                 $index = 1;

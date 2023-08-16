@@ -101,11 +101,11 @@ section.part-deservingHotWater {
     overflow: hidden;
     background: #edeff6;
     padding-top: 45px;
-    
+
     @include media-breakpoint-up(lg) {
         padding: 64px 0;
     }
-    
+
     @include media-breakpoint-up(xl) {
         background: imgUrl('homepage-section-4.png') right center #edeff6;
         background-size: contain;
@@ -218,13 +218,13 @@ section.part-getStartedForm {
         }
 
         @include media-breakpoint-down(lg) {
-            margin: 25px 16px;
-            padding: 24px;
+            margin: 25px 0;
+            // padding: 24px;
         }
 
         @include media-breakpoint-down(sm) {
-            margin: 20px 8px;
-            padding: 24px 16px;
+            margin: 20px 0;
+            // padding: 24px 16px;
         }
 
         .accordion-head {
@@ -232,12 +232,17 @@ section.part-getStartedForm {
             font-weight: 500;
             color: $grey;
             transition: 0.2s all;
-            font-size: 15rem;
+            font-size: 1rem;
             letter-spacing: -0.02em;
-            padding: 35px 38px;
+            padding: 16px;
 
             @include media-breakpoint-up(md) {
                 font-size: 1.5rem; // 24px
+                padding: 24px 16px;
+            }
+            
+            @include media-breakpoint-up(lg) {
+                padding: 35px 38px;
             }
 
             &.active {
@@ -259,8 +264,13 @@ section.part-getStartedForm {
             color: $grey;
             font-size: 1.125rem;
 
+            @include media-breakpoint-down(lg) {
+                padding: 24px 16px;
+            }
+            
             @include media-breakpoint-down(sm) {
                 font-size: 0.875rem;
+                padding: 16px;
             }
 
             a {

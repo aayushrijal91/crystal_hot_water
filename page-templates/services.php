@@ -25,11 +25,11 @@ $the_query = new WP_Query($args);
 <main class="service-page">
     <div class="container">
         <section class="no-risk bg-primary rounded-11">
-            <?php
+        <?php
             $no_risk_guarantee = get_field('no_risk_guarantee', 'options');
             if (!empty($no_risk_guarantee['title'])) : ?>
                 <div class="row align-items-center top-row">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6 order-2 order-lg-1">
                         <h2 class="fs-60 text-white text-capitalize fw-800 lh-1">
                             <?= get_field('no_risk_guarantee', 'options')['title'] ?>
                         </h2>
@@ -40,13 +40,13 @@ $the_query = new WP_Query($args);
                         <?php endif; ?>
                         <div class="row g-2">
                             <?php if (isset($no_risk_guarantee['button'])) : ?>
-                                <div class="col-5">
+                                <div class="col-6 col-md-5">
                                     <button class="w-100 bg-transparent">
                                         <a href="<?= $no_risk_guarantee['button']['url'] ?>" target="<?= $no_risk_guarantee['button']['target'] ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= $no_risk_guarantee['button']['title'] ?></a>
                                     </button>
                                 </div>
                             <?php endif; ?>
-                            <div class="col-5">
+                            <div class="col-6 col-md-5">
                                 <button class="w-100 bg-transparent">
                                     <a href="tel:<?= get_field('phone_number', 'options') ?>" class="btn btn-white fw-700 d-flex w-100 text-primary"><?= get_field('phone_number', 'options') ?></a>
                                 </button>
@@ -54,7 +54,7 @@ $the_query = new WP_Query($args);
                         </div>
                     </div>
                     <?php if (isset($no_risk_guarantee['image']['url'])) : ?>
-                        <div class="col-6">
+                        <div class="col-12 col-lg-6 order-1 order-lg-2">
                             <img src="<?= $no_risk_guarantee['image']['url'] ?>" alt="<?= $no_risk_guarantee['image']['alt'] ?>">
                         </div>
                     <?php endif; ?>
@@ -64,13 +64,13 @@ $the_query = new WP_Query($args);
             <?php if (have_rows('no_risk_guarantee', 'options')) :
                 while (have_rows('no_risk_guarantee', 'options')) : the_row();
                     if (have_rows('services', 'options')) : ?>
-                        <div class="row gx-2 gy-3 homepage-services">
+                        <div class="row gx-2 gy-3 homepage-services justify-content-center">
                             <?php while (have_rows('services', 'options')) : the_row();
                                 $title = get_sub_field('title');
                                 $description = get_sub_field('description');
                                 $link = get_sub_field('link');
                             ?>
-                                <div class="col-4">
+                                <div class="col-12 col-md-6 col-lg-4">
                                     <article class="service-box bg-primary-dark text-white rounded-8 d-flex flex-column gap-5 justify-content-between h-100">
                                         <div>
                                             <h4 class="fs-40 fw-800 lh-1"><?= $title ?></h4>
@@ -106,7 +106,7 @@ $the_query = new WP_Query($args);
                     <?php
                     while ($the_query->have_posts()) : $the_query->the_post();
                     ?>
-                        <div class="col-4">
+                        <div class="col-12 col-md-6 col-lg-4">
                             <article class="main-service-card">
                                 <div>
                                     <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">

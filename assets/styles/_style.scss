@@ -148,8 +148,16 @@ main.shop-page {
 main.service-page {
     padding: 127px 0;
 
+    @include media-breakpoint-down(sm) {
+        padding: 48px 0;
+    }
+
     section.no-risk {
-        padding: 12px 128px;
+        padding: 45px 20px;
+
+        @include media-breakpoint-up(xl) {
+            padding: 12px 128px;
+        }
 
         .top-row {
             background: imgUrl('flame.png') center;
@@ -175,6 +183,10 @@ main.service-page {
         padding: 53px 128px 90px;
         box-shadow: 0 11px $secondary;
         background: #F8F8F8;
+
+        @include media-breakpoint-down(xl) {
+            padding: 53px 20px 90px;
+        }
 
         .icon {
             position: absolute;
@@ -228,8 +240,12 @@ main.inner-service-page {
     }
 
     section.section-3 {
-        background: imgUrl('inner-service.png') right center #ecedf6;
-        background-size: contain;
+        background: #ecedf6;
+
+        @include media-breakpoint-up(xl) {
+            background: imgUrl('inner-service.png') right center #ecedf6;
+            background-size: contain;
+        }
     }
 }
 
@@ -240,6 +256,18 @@ main.membership-page {
         border-radius: 11px;
         overflow: hidden;
         padding: 103px 110px 85px;
+
+        @include media-breakpoint-down(xl) {
+            padding: 48px 16px 450px;
+        }
+
+        @include media-breakpoint-down(lg) {
+            padding: 48px 16px 450px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding: 48px 16px 250px;
+        }
     }
 
     section.signupForm {
@@ -247,6 +275,10 @@ main.membership-page {
         border: 1px solid #E8E8E8;
         background: $white;
         padding: 60px 40px;
+
+        @include media-breakpoint-down(sm) {
+            padding: 48px 16px;
+        }
 
         .mainForm {
             .form-input-wrapper {
@@ -321,6 +353,10 @@ main.membership-page {
 main.careers-page {
     padding: 115px 0;
 
+    @include media-breakpoint-down(sm) {
+        padding: 48px 0;
+    }
+
     .form {
         label {
             font-size: 18px;
@@ -338,6 +374,10 @@ main.careers-page {
                 height: 40px;
                 font-size: 20px;
 
+                @include media-breakpoint-down(sm) {
+                    font-size: 16px;
+                }
+
                 &::placeholder {
                     color: $white;
                     opacity: 0.5;
@@ -354,6 +394,9 @@ main.careers-page {
             &.submit {
                 height: 75px;
 
+                @include media-breakpoint-down(sm) {
+                    height: 54px;
+                }
             }
         }
 
@@ -362,8 +405,6 @@ main.careers-page {
         }
     }
 }
-
-main.contact-us-page {}
 
 footer {
     border-top: 8px solid $secondary;
