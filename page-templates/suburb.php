@@ -10,24 +10,24 @@ get_template_part('parts/section', 'banner');
 $suburb = get_field('suburb', 'options');
 ?>
 
-<main class="suburb-page pt-9">
+<main class="suburb-page pt-6 pt-md-9">
     <div class="container">
-        <div class="row gx-xl-5 gx-xxl-9">
+        <div class="row gx-xl-5 gx-xxl-9 gy-5">
             <?php if ($suburb['section_1']) : ?>
-                <div class=<?= $suburb['section_2'] ? 'col-6' : 'col-12' ?>>
+                <div class="<?= $suburb['section_2'] ? 'col-12 col-md-6' : 'col-12' ?>">
                     <h2 class="fs-60 lh-1 fw-800 highlight-primary text-capitalize"><?= $suburb['section_1_title'] ?></h2>
                     <?php if (!empty($suburb['section_1_description'])) : ?>
-                        <article class="description pt-5 lh-1_67 fw-500">
+                        <article class="description pt-4 pt-md-5 lh-1_67 fw-500">
                             <?= $suburb['section_1_description'] ?>
                         </article>
                     <?php endif; ?>
                 </div>
             <?php endif;
             if ($suburb['section_2']) : ?>
-                <div class=<?= $suburb['section_1'] ? 'col-6' : 'col-12' ?>>
+                <div class="<?= $suburb['section_1'] ? 'col-12 col-md-6' : 'col-12' ?>">
                     <h2 class="fs-60 lh-1 fw-800 highlight-primary text-capitalize"><?= $suburb['section_2_title'] ?></h2>
                     <?php if (!empty($suburb['section_2_description'])) : ?>
-                        <article class="description pt-5 lh-1_67 fw-500">
+                        <article class="description pt-4 pt-md-5 lh-1_67 fw-500">
                             <?= $suburb['section_2_description'] ?>
                         </article>
                     <?php endif; ?>
@@ -35,12 +35,12 @@ $suburb = get_field('suburb', 'options');
             <?php endif; ?>
         </div>
 
-        <div class="py-6 px-5 rounded-20 bg-light my-6">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-auto">
+        <div class="py-5 py-lg-6 px-3 px-xl-5 rounded-20 bg-light my-5 my-md-6">
+            <div class="row align-items-center justify-content-between gy-4">
+                <div class="col-12 col-lg-auto">
                     <p class="highlight-primary fs-30 fw-600 text-dark text-capitalize">Flexible Payment <span class="fw-800">Options</span></p>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-md-5 col-lg-4 col-xl-3">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <img src="<?= get_site_url() ?>/wp-content/uploads/2023/08/eftpos.png" alt="<?= bloginfo('name') ?>">
@@ -50,7 +50,7 @@ $suburb = get_field('suburb', 'options');
                         </div>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-12 col-md-4 col-lg-3 col-xl-2">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <p class="text-dark fs-20 fw-600">Credit Card</p>
@@ -64,20 +64,20 @@ $suburb = get_field('suburb', 'options');
         </div>
 
         <?php if ($suburb['section_3']) : ?>
-            <div class="row gx-xl-5 align-items-center">
+            <div class="row gx-xl-5 align-items-center gy-4">
                 <?php if (isset($suburb['section_3_image'])) : ?>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-lg-6">
                         <img src=<?= $suburb['section_3_image']['url'] ?> alt="<?= bloginfo('name') ?>" class="rounded-11">
                     </div>
                 <?php endif; ?>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-lg-6">
                     <?php
                     $title = str_replace(array('{suburb}', '{Suburb}', '{SUBURB}'), get_the_title(), $suburb['section_3_title']);
                     $description = str_replace(array('{suburb}', '{Suburb}', '{SUBURB}'), get_the_title(), $suburb['section_3_description']);
                     ?>
                     <h2 class="fs-60 lh-1 fw-800 highlight-primary text-capitalize"><?= $title ?></h2>
 
-                    <article class="text-grey description lh-1_67 pt-5">
+                    <article class="text-grey description lh-1_67 pt-4 pt-md-5">
                         <?= $description ?>
                     </article>
                 </div>
