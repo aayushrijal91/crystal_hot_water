@@ -8,9 +8,9 @@
                     </h2>
                 <?php endif; ?>
                 <?php if (isset(get_field('deserving_hot_water', 'options')['description'])) : ?>
-                <article class="py-4 lh-1_67 description">
-                    <?= get_field('deserving_hot_water', 'options')['description'] ?>
-                </article>
+                    <article class="py-4 lh-1_67 description">
+                        <?= get_field('deserving_hot_water', 'options')['description'] ?>
+                    </article>
                 <?php endif; ?>
                 <div class="row g-2 pt-4">
                     <?php if (isset(get_field('deserving_hot_water', 'options')['button']['url'])) : ?>

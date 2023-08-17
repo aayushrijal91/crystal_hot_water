@@ -145,6 +145,18 @@ main.shop-page {
     }
 }
 
+main.product-page {
+    .product-image {
+        border: 0.5px solid #A4A4A4;
+        height: 100%;
+        background: linear-gradient(180deg, $white 0% 40%, $primary 40% 100%);
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 main.service-page {
     padding: 127px 0;
 
