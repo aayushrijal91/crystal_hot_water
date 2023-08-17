@@ -39,7 +39,7 @@ if (post_password_required()) {
 			<div class="row">
 				<div class="col-6">
 					<div class="product-image">
-						<?= woocommerce_template_loop_product_thumbnail(); ?>
+						<?= get_the_post_thumbnail($product->get_id(), 'full'); ?>
 					</div>
 				</div>
 				<div class="col-6">

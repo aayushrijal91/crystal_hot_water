@@ -238,3 +238,34 @@ function get_areas_data()
 
     return $areaData;
 }
+
+function filter_products() {
+    $selected_categories = $_POST['categories'];
+
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => $selected_categories,
+                'operator' => 'IN',
+            ),
+        ),
+    );
+
+    $products = new WP_Query($args);
+
+    if ($products->have_posts()) {
+        while ($products->have_posts()) : $products->the_post();
+            wc_get_template_part('content', 'product');
+        endwhile;
+    } else {
+        echo 'No products found.';
+    }
+
+    die();
+}
+add_action('wp_ajax_filter_products', 'filter_products');
+add_action('wp_ajax_nopriv_filter_products', 'filter_products');

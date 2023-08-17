@@ -25,7 +25,7 @@ if (empty($product) || !$product->is_visible()) {
 	return;
 }
 ?>
-<li <?php wc_product_class('', $product); ?>>
+<!-- <li <?php wc_product_class('', $product); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
@@ -65,15 +65,17 @@ if (empty($product) || !$product->is_visible()) {
 	 */
 	do_action('woocommerce_after_shop_loop_item');
 
-	
-	?>
-</li>
 
-<!-- <article class="product-card">
-	<div class="d-flex justify-content-center"><img src="http://localhost/crystal_hot_water/wp-content/uploads/2023/08/rinnai-geaser.png" alt=""></div>
-	<p class="text-grey highlight-primary text-capitalize"><b><span>Rinnai</span></b> Infinity 26 Continuous Flow Hot Water System</p>
-	<p class="text-primary fs-18 fw-800">$1,250.00</p>
-	<button class="w-100 bg-transparent">
-		<a href="#" target="" class="btn btn-primary fw-700 d-flex w-100 text-white rounded-0">Add to cart</a>
-	</button>
-</article> -->
+	?>
+</li> -->
+
+<div class="col-md-6 col-lg-4 col-xl-3">
+	<article class="product-card">
+		<div class="d-flex justify-content-center"><?= woocommerce_template_loop_product_thumbnail() ?></div>
+		<a href="<?= the_permalink() ?>" class="text-primary highlight-primary text-capitalize fw-800 fs-18 pt-3"><?= the_title(); ?></a>
+		<p class="fw-500"><?= $product->get_sku() ?></p>
+		<p class="text-grey text-capitalize fs-14"><?= $product->get_short_description() ?></p>
+		<p class="text-primary fs-18 fw-800"><?= woocommerce_template_loop_price() ?></p>
+		<?= woocommerce_template_loop_add_to_cart() ?>
+	</article>
+</div>

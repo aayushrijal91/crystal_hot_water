@@ -87,7 +87,26 @@ jQuery(function ($) {
 
                 $("#close-slidenav").on('click', function() {
                     $('.slide-nav').removeClass('active');
-                })
+                });
+
+                $('input[name="subcategory-checkbox"]').on('change', function() {
+                    var selectedCategories = [];
+                    $('input[name="subcategory-checkbox"]:checked').each(function() {
+                        selectedCategories.push($(this).val());
+                    });
+            
+                    $.ajax({
+                        type: 'POST',
+                        url: customAjax.ajaxurl,
+                        data: {
+                            action: 'filter_products',
+                            categories: selectedCategories,
+                        },
+                        success: function(response) {
+                            $('#filtered-products').html(response);
+                        }
+                    });
+                });
             }, // end misc
         }, // end ui
         //utils: {
