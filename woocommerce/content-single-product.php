@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product content in the single-product.php template
  *
@@ -15,7 +16,7 @@
  * @version 3.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
@@ -24,53 +25,148 @@ global $product;
  *
  * @hooked woocommerce_output_all_notices - 10
  */
-do_action( 'woocommerce_before_single_product' );
+do_action('woocommerce_before_single_product');
 
-if ( post_password_required() ) {
+if (post_password_required()) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-	<?php
-	/**
-	 * Hook: woocommerce_before_single_product_summary.
-	 *
-	 * @hooked woocommerce_show_product_sale_flash - 10
-	 * @hooked woocommerce_show_product_images - 20
-	 */
-	do_action( 'woocommerce_before_single_product_summary' );
-	?>
+<main class="product-page py-5 py-md-7">
+	<div class="container">
+		<div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
+			<div class="row">
+				<div class="col-6">
+					<div class="product-image">
+						<?= woocommerce_template_loop_product_thumbnail(); ?>
+					</div>
+				</div>
+				<div class="col-6">
+					<h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
+						<?= the_title(); ?>
+					</h2>
+					<?php if ($product->get_sku()) : ?>
+						<p class="text-grey pt-3">SKU: <?= $product->get_sku() ?></p>
+					<?php endif; ?>
+					<article class="py-4 lh-1_67 description">
+						<?= $product->get_description() ?>
+					</article>
+					<div class="row align-items-center">
+						<div class="col-4">
+							<p class="text-primary fs-30 fw-700"><?= $product->get_price_html() ?></p>
+						</div>
+						<div class="col">
+							<?php if ($product->get_stock_status() == 'outofstock') {
+								echo "<p class='fw-800 text-primary'>Out Of Stock</p>";
+							} else {
+								woocommerce_template_loop_add_to_cart();
+							}
+							?>
+						</div>
+					</div>
 
-	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		do_action( 'woocommerce_single_product_summary' );
-		?>
+					<hr class="my-4" />
+
+					<div class="row">
+						<div class="col-3">
+							<p class="fs-20 fw-700 text-dark pb-4">Dimensions</p>
+							<?php if ($product->get_length()) : ?>
+								<p class="text-grey lh-1_67 fw-500">Length <?= $product->get_length() . get_option('woocommerce_dimension_unit') ?></p>
+							<?php endif;
+							if ($product->get_width()) : ?>
+								<p class="text-grey lh-1_67 fw-500">Width <?= $product->get_width() . get_option('woocommerce_dimension_unit') ?></p>
+							<?php endif;
+							if ($product->get_height()) : ?>
+								<p class="text-grey lh-1_67 fw-500">Height <?= $product->get_height() . get_option('woocommerce_dimension_unit') ?></p>
+							<?php endif;
+							if ($product->get_weight()) : ?>
+								<p class="text-grey lh-1_67 fw-500">Weight <?= $product->get_weight() . get_option('woocommerce_weight_unit') ?></p>
+							<?php endif; ?>
+
+						</div>
+						<div class="col">
+							<p class="fs-20 fw-700 text-dark pb-4">Specs</p>
+
+							<?php
+							$terms = get_the_terms($product->get_id(), 'product_cat');
+
+							if ($terms && !is_wp_error($terms)) {
+								$first_term = reset($terms); // Get the first term from the array
+
+								if ($first_term instanceof WP_Term) {
+									$term_name = $first_term->name;
+							?>
+									<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Type</strong><?= " " . $term_name; ?></p>
+							<?php }
+							} ?>
+
+							<?php foreach ($product->get_attributes() as $key => $attribute) { ?>
+								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark"><?= ucfirst($key) ?></strong><?= " " . $attribute->get_options()[0] ?></p>
+							<?php } ?>
+						</div>
+					</div>
+
+					<hr class="my-4" />
+
+					<article>
+						<p class="fs-20 fw-700 text-dark pb-4">Delivery Information</p>
+						<p class="text-grey lh-1_67 fw-500">We provide Sydney-wide delivery of all hot water systems, and in most cases, shipping is free of charge! However, please note that all sales must be made within a 30km radius of the Sydney CBD. If you are outside of this area, please contact us to check for availability.</p>
+					</article>
+				</div>
+			</div>
+
+			<div class="gallery py-8">
+				<?php
+				$gallery_image_ids = $product->get_gallery_image_ids();
+
+				// Display the gallery images
+				if (!empty($gallery_image_ids)) { ?>
+					<div class="row">
+						<?php foreach ($gallery_image_ids as $image_id) {
+							// Get the image URL
+							$image_url = wp_get_attachment_url($image_id);
+						?>
+							<div class="col-12 col-md-6 col-lg-4">
+								<div class="gallery-image">
+									<img src="<?= $image_url ?>" alt="<?= bloginfo('name') ?>" />
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+				<?php } else {
+					echo "No gallery images found for this product.";
+				}
+				?>
+			</div>
+
+			<div class="reviews">
+				<?php //comments_template(); 
+				?>
+			</div>
+
+			<?php
+			$related_products = wc_get_related_products(get_the_ID(), 4); // Get related product IDs
+
+			if (!empty($related_products)) { ?>
+				<div class="related-products row">
+					<?php foreach ($related_products as $related_product_id) {
+						$related_product = wc_get_product($related_product_id);
+
+						if ($related_product) { ?>
+							<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+								<article class="related-product">
+									<div class="d-flex justify-content-center"><?= woocommerce_template_loop_product_thumbnail() ?></div>
+									<a href="<?= the_permalink() ?>" class="text-primary highlight-primary text-capitalize fw-800 fs-18 pt-3"><?= $related_product->get_name() ?></a>
+									<p class="text-grey text-capitalize fs-14"><?= $related_product->get_short_description() ?></p>
+									<p class="text-primary fs-18 fw-800"><?= $related_product->get_price_html() ?></p>
+									<?= woocommerce_template_loop_add_to_cart() ?>
+								</article>
+							</div>
+					<?php }
+					} ?>
+				</div>
+			<?php } ?>
+		</div>
 	</div>
-
-	<?php
-	/**
-	 * Hook: woocommerce_after_single_product_summary.
-	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
-	 * @hooked woocommerce_upsell_display - 15
-	 * @hooked woocommerce_output_related_products - 20
-	 */
-	do_action( 'woocommerce_after_single_product_summary' );
-	?>
-</div>
-
-<?php do_action( 'woocommerce_after_single_product' ); ?>
+</main>
