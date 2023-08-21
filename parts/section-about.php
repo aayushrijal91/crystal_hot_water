@@ -1,6 +1,11 @@
 <section class="part-about">
     <div class="container">
         <div class="row gx-xl-5 align-items-center">
+            <div class="col-12 d-md-none pt-5">
+                <h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
+                    Our hot water system <span>Expertise is crystal clear</span>
+                </h2>
+            </div>
             <div class="col-12 col-lg-7">
                 <article class="animated-image-wrapper position-relative d-flex justify-content-center align-items-center">
                     <img src="http://localhost/crystal_hot_water/wp-content/uploads/2023/08/hot-water-system-bathtub.jpg" class="w-100 rounded-11 object-fit-cover h-100" alt="">
@@ -8,7 +13,7 @@
                 </article>
             </div>
             <div class="col-12 col-md-8 col-lg-5">
-                <h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
+                <h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1 d-none d-md-block">
                     Our hot water system <span>Expertise is crystal clear</span>
                 </h2>
                 <p class="fw-500 py-4">

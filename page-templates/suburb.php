@@ -8,17 +8,21 @@ get_header();
 get_template_part('parts/section', 'nav');
 get_template_part('parts/section', 'banner');
 $suburb = get_field('suburb', 'options');
+$suburbArray = array('{suburb}', '{Suburb}', '{SUBURB}', '(suburb)', '(SUBURB)');
 ?>
 
 <main class="suburb-page pt-6 pt-md-9">
     <div class="container">
         <div class="row gx-xl-5 gx-xxl-9 gy-5">
-            <?php if ($suburb['section_1']) : ?>
+            <?php
+            if ($suburb['section_1']) : ?>
                 <div class="<?= $suburb['section_2'] ? 'col-12 col-md-6' : 'col-12' ?>">
                     <h2 class="fs-60 lh-1 fw-800 highlight-primary text-capitalize"><?= $suburb['section_1_title'] ?></h2>
-                    <?php if (!empty($suburb['section_1_description'])) : ?>
+                    <?php if (!empty($suburb['section_1_description'])) :
+                        $section_1_description = str_replace($suburbArray, get_the_title(), $suburb['section_1_description']);
+                    ?>
                         <article class="description pt-4 pt-md-5 lh-1_67 fw-500">
-                            <?= $suburb['section_1_description'] ?>
+                            <?= $section_1_description ?>
                         </article>
                     <?php endif; ?>
                 </div>
@@ -26,9 +30,11 @@ $suburb = get_field('suburb', 'options');
             if ($suburb['section_2']) : ?>
                 <div class="<?= $suburb['section_1'] ? 'col-12 col-md-6' : 'col-12' ?>">
                     <h2 class="fs-60 lh-1 fw-800 highlight-primary text-capitalize"><?= $suburb['section_2_title'] ?></h2>
-                    <?php if (!empty($suburb['section_2_description'])) : ?>
+                    <?php if (!empty($suburb['section_2_description'])) :
+                        $section_2_description = str_replace($suburbArray, get_the_title(), $suburb['section_2_description']);
+                    ?>
                         <article class="description pt-4 pt-md-5 lh-1_67 fw-500">
-                            <?= $suburb['section_2_description'] ?>
+                            <?= $section_2_description ?>
                         </article>
                     <?php endif; ?>
                 </div>
@@ -36,7 +42,7 @@ $suburb = get_field('suburb', 'options');
         </div>
 
         <div class="py-5 py-lg-6 px-3 px-xl-5 rounded-20 bg-light my-5 my-md-6">
-            <div class="row align-items-center justify-content-between gy-4">
+            <div class="row align-items-center justify-content-md-between gy-md-4 text-center text-md-start" id="flexible-payment-options">
                 <div class="col-12 col-lg-auto">
                     <p class="highlight-primary fs-30 fw-600 text-dark text-capitalize">Flexible Payment <span class="fw-800">Options</span></p>
                 </div>
@@ -72,8 +78,8 @@ $suburb = get_field('suburb', 'options');
                 <?php endif; ?>
                 <div class="col-12 col-lg-6">
                     <?php
-                    $title = str_replace(array('{suburb}', '{Suburb}', '{SUBURB}'), get_the_title(), $suburb['section_3_title']);
-                    $description = str_replace(array('{suburb}', '{Suburb}', '{SUBURB}'), get_the_title(), $suburb['section_3_description']);
+                    $title = str_replace($suburbArray, get_the_title(), $suburb['section_3_title']);
+                    $description = str_replace($suburbArray, get_the_title(), $suburb['section_3_description']);
                     ?>
                     <h2 class="fs-60 lh-1 fw-800 highlight-primary text-capitalize"><?= $title ?></h2>
 
@@ -94,41 +100,41 @@ $suburb = get_field('suburb', 'options');
                         <h2 class="fs-60 fw-800 text-center highlight-primary text-capitalize pb-4 pb-md-5 pb-lg-7">Our <span>Frequently Asked Questions</span></h2>
                         <div class="accordion-container">
                             <?php
-                                $index = 1;
-                                while (have_rows('faq_list', 'options')) : the_row();
-                                    $question = get_sub_field('question');
-                                    $answer = get_sub_field('answer');
+                            $index = 1;
+                            while (have_rows('faq_list', 'options')) : the_row();
+                                $question = get_sub_field('question');
+                                $answer = get_sub_field('answer');
                             ?>
-                                    <div class="accordion-card">
-                                        <div class="accordion-head<?= ($index == 1) ? " active" : ""; ?>">
-                                            <div class="row g-0 w-100 justify-content-between">
-                                                <div class="col h-inherit">
-                                                    <?= $question ?>
-                                                </div>
-                                                <div class="col-auto h-inherit">
-                                                    <div class="plusminus">
-                                                        <?php if ($index == 1) { ?>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="20" viewBox="0 0 32 20" fill="none">
-                                                                <path d="M0.251953 19.2454L0.251953 12.0247L16.0733 0.43678L16.0733 7.65749L0.251953 19.2454Z" fill="white" />
-                                                                <path d="M31.8945 19.2454L31.8945 12.0247L16.0732 0.436778L16.0732 7.65749L31.8945 19.2454Z" fill="white" />
-                                                            </svg>
-                                                        <?php } else { ?>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="20" viewBox="0 0 32 20" fill="none">
-                                                                <path d="M0.251953 0.606812L0.251953 7.82752L16.0733 19.4154L16.0733 12.1947L0.251953 0.606812Z" fill="#DD1E26" />
-                                                                <path d="M31.8945 0.606812L31.8945 7.82752L16.0732 19.4154L16.0732 12.1947L31.8945 0.606812Z" fill="#DD1E26" />
-                                                            </svg>
-                                                        <?php } ?>
-                                                    </div>
+                                <div class="accordion-card">
+                                    <div class="accordion-head<?= ($index == 1) ? " active" : ""; ?>">
+                                        <div class="row g-0 w-100 justify-content-between">
+                                            <div class="col h-inherit">
+                                                <?= $question ?>
+                                            </div>
+                                            <div class="col-auto h-inherit">
+                                                <div class="plusminus">
+                                                    <?php if ($index == 1) { ?>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="20" viewBox="0 0 32 20" fill="none">
+                                                            <path d="M0.251953 19.2454L0.251953 12.0247L16.0733 0.43678L16.0733 7.65749L0.251953 19.2454Z" fill="white" />
+                                                            <path d="M31.8945 19.2454L31.8945 12.0247L16.0732 0.436778L16.0732 7.65749L31.8945 19.2454Z" fill="white" />
+                                                        </svg>
+                                                    <?php } else { ?>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="20" viewBox="0 0 32 20" fill="none">
+                                                            <path d="M0.251953 0.606812L0.251953 7.82752L16.0733 19.4154L16.0733 12.1947L0.251953 0.606812Z" fill="#DD1E26" />
+                                                            <path d="M31.8945 0.606812L31.8945 7.82752L16.0732 19.4154L16.0732 12.1947L31.8945 0.606812Z" fill="#DD1E26" />
+                                                        </svg>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="accordion-body" style="<?= ($index == 1) ? 'display: block;' : ''; ?>">
-                                            <?= $answer ?>
-                                        </div>
                                     </div>
+                                    <div class="accordion-body" style="<?= ($index == 1) ? 'display: block;' : ''; ?>">
+                                        <?= $answer ?>
+                                    </div>
+                                </div>
                             <?php
-                                    $index++;
-                                endwhile;
+                                $index++;
+                            endwhile;
                             ?>
                         </div>
                     </div>

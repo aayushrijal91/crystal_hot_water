@@ -36,13 +36,13 @@ if (post_password_required()) {
 <main class="product-page py-5 py-md-7">
 	<div class="container">
 		<div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
-			<div class="row">
-				<div class="col-6">
+			<div class="row gy-5">
+				<div class="col-lg-6">
 					<div class="product-image">
 						<?= get_the_post_thumbnail($product->get_id(), 'full'); ?>
 					</div>
 				</div>
-				<div class="col-6">
+				<div class="col-lg-6">
 					<h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
 						<?= the_title(); ?>
 					</h2>
@@ -69,23 +69,23 @@ if (post_password_required()) {
 					<hr class="my-4" />
 
 					<div class="row">
-						<div class="col-3">
+						<div class="col-md-3">
 							<p class="fs-20 fw-700 text-dark pb-4">Dimensions</p>
 							<?php if ($product->get_length()) : ?>
-								<p class="text-grey lh-1_67 fw-500">Length <?= $product->get_length() . get_option('woocommerce_dimension_unit') ?></p>
+								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Length:</strong> <?= $product->get_length() . get_option('woocommerce_dimension_unit') ?></p>
 							<?php endif;
 							if ($product->get_width()) : ?>
-								<p class="text-grey lh-1_67 fw-500">Width <?= $product->get_width() . get_option('woocommerce_dimension_unit') ?></p>
+								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Width:</strong> <?= $product->get_width() . get_option('woocommerce_dimension_unit') ?></p>
 							<?php endif;
 							if ($product->get_height()) : ?>
-								<p class="text-grey lh-1_67 fw-500">Height <?= $product->get_height() . get_option('woocommerce_dimension_unit') ?></p>
+								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Height:</strong> <?= $product->get_height() . get_option('woocommerce_dimension_unit') ?></p>
 							<?php endif;
 							if ($product->get_weight()) : ?>
-								<p class="text-grey lh-1_67 fw-500">Weight <?= $product->get_weight() . get_option('woocommerce_weight_unit') ?></p>
+								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Weight:</strong <?= $product->get_weight() . get_option('woocommerce_weight_unit') ?></p>
 							<?php endif; ?>
 
 						</div>
-						<div class="col">
+						<div class="col-md">
 							<p class="fs-20 fw-700 text-dark pb-4">Specs</p>
 
 							<?php
@@ -97,12 +97,12 @@ if (post_password_required()) {
 								if ($first_term instanceof WP_Term) {
 									$term_name = $first_term->name;
 							?>
-									<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Type</strong><?= " " . $term_name; ?></p>
+									<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Type:</strong><?= " " . $term_name; ?></p>
 							<?php }
 							} ?>
 
 							<?php foreach ($product->get_attributes() as $key => $attribute) { ?>
-								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark"><?= ucfirst($key) ?></strong><?= " " . $attribute->get_options()[0] ?></p>
+								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark"><?= ucfirst($key) ?>:</strong><?= " " . $attribute->get_options()[0] ?></p>
 							<?php } ?>
 						</div>
 					</div>
@@ -122,7 +122,7 @@ if (post_password_required()) {
 
 				// Display the gallery images
 				if (!empty($gallery_image_ids)) { ?>
-					<div class="row">
+					<div class="row gy-3">
 						<?php foreach ($gallery_image_ids as $image_id) {
 							// Get the image URL
 							$image_url = wp_get_attachment_url($image_id);
@@ -149,7 +149,7 @@ if (post_password_required()) {
 			$related_products = wc_get_related_products(get_the_ID(), 4); // Get related product IDs
 
 			if (!empty($related_products)) { ?>
-				<div class="related-products row">
+				<div class="related-products row gy-3">
 					<?php foreach ($related_products as $related_product_id) {
 						$related_product = wc_get_product($related_product_id);
 

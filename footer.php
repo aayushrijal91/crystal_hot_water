@@ -171,7 +171,7 @@
                         endif;
                         ?>
                         <div class="col-auto">
-                            <a href="https://aiims.com.au/">
+                            <a href="https://aiims.com.au/this-is-us/">
                                 <img src="<?= get_site_url() ?>/wp-content/uploads/2023/08/aiims.png" alt="">
                             </a>
                         </div>

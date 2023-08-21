@@ -2,10 +2,16 @@
 
 <section class="banner">
     <div class="container">
-        <h1 class="highlight-primary fs-60 fw-800 text-center lh-1 <?= is_page_template('page-templates/suburb.php') ? 'text-primary' : '' ?>"><?= !empty($banner['title']) ? $banner['title'] : get_the_title(); ?></h1>
-        <?php if (!empty($banner['subtitle'])) : ?>
+        <?php if (is_shop()) { ?>
+            <h1 class="highlight-primary fs-60 fw-800 text-center lh-1 text-capitalize">Our <span>shop</span></h1>
+        <?php   } else { ?>
+            <h1 class="highlight-primary fs-60 fw-800 text-center lh-1 text-capitalize <?= is_page_template('page-templates/suburb.php') ? 'text-primary' : '' ?>"><?= !empty($banner['title']) ? $banner['title'] : get_the_title(); ?></h1>
+        <?php } ?>
+        <?php if (!empty($banner['subtitle'])) { ?>
             <article class="subtitle text-center text-grey pt-3"><?= $banner['subtitle'] ?></article>
-        <?php endif; ?>
+        <?php } else { ?>
+            <article class="subtitle text-center text-dark pt-3"><b>Crystal Hot Water is here to help you with hot</b> water installation in all of Sydney!</article>
+        <?php } ?>
         <div class="row justify-content-center pt-4">
             <div class="col-11 col-md-6 col-lg-4">
                 <div class="row justify-content-center g-2">

@@ -424,13 +424,6 @@ main.careers-page {
                 }
             }
 
-            &.attach {
-                background: transparent;
-                border: 1px dotted $white;
-                border-radius: 0;
-                height: 54px;
-            }
-
             &.submit {
                 height: 75px;
 
@@ -438,6 +431,17 @@ main.careers-page {
                     height: 54px;
                 }
             }
+        }
+
+        .wpcf7 input[type="file"] {
+            display: none;
+        }
+
+        .attach {
+            background: transparent;
+            border: 1px dotted $white;
+            border-radius: 0;
+            height: 54px;
         }
 
         span.wpcf7-not-valid-tip {
