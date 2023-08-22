@@ -61,13 +61,12 @@
                                 'item_class' => 'nav-item',
                                 'link_class' => 'nav-link text-white fw-500',
                                 'container_class' => 'primary_menu w-100',
-                                'container_id' => '',
                             ));
                             ?>
                         </div>
                     </nav>
                 </div>
-                <div class="col-auto col-md-6 col-lg-4">
+                <div class="col-7 col-md-6 col-lg-4">
                     <div class="row align-items-center gx-md-2 d-none d-md-flex">
                         <div class="col-6">
                             <a href="<?= get_site_url() ?>/contact-us" class="btn btn-white fw-700 d-flex w-100 text-primary">
@@ -82,6 +81,17 @@
                     </div>
 
                     <div class="row align-items-center justify-content-between gx-2 d-md-none">
+                        <div class="col">
+                        <?php
+                            wp_nav_menu(array(
+                                'menu' => 'Mobile Menu',
+                                'menu_class' => 'navbar-nav justify-content-around flex-row',
+                                'item_class' => 'nav-item',
+                                'link_class' => 'nav-link text-white fs-12',
+                                'container_class' => 'primary_menu w-100',
+                            ));
+                            ?>
+                        </div>
                         <div class="col-auto">
                             <a href="tel:<?= get_field('phone_number', 'options') ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
