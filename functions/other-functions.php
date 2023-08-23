@@ -269,3 +269,11 @@ function filter_products() {
 }
 add_action('wp_ajax_filter_products', 'filter_products');
 add_action('wp_ajax_nopriv_filter_products', 'filter_products');
+
+function custom_search_filter($query) {
+    if ($query->is_search && !is_admin()) {
+        $query->set('post_type', array('product'));
+    }
+    return $query;
+}
+add_action('pre_get_posts','custom_search_filter');

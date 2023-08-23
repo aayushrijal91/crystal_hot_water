@@ -127,18 +127,49 @@ jQuery(function ($) {
                         settings: {
                             slidesToShow: 3,
                         }
-                    },{
+                    }, {
                         breakpoint: 900,
                         settings: {
                             slidesToShow: 2,
                         }
-                    },{
+                    }, {
                         breakpoint: 540,
                         settings: {
                             slidesToShow: 1,
                         }
                     }]
-                })
+                });
+
+                const rangeInput = $(".range-input input");
+                const minPriceInput = $("#min_price");
+                const maxPriceInput = $("#max_price");
+                const progress = $(".slider .progress");
+                let priceGap = 1000;
+                progress.css("left", ((minPriceInput.val() - rangeInput.eq(0).attr("min")) / (rangeInput.eq(0).attr("max") - rangeInput.eq(0).attr("min"))) * 100 + "%");
+                progress.css("right", 100 - ((maxPriceInput.val() - rangeInput.eq(1).attr("min"))/ (rangeInput.eq(1).attr("max") - rangeInput.eq(1).attr("min"))) * 100 + '%');
+
+                rangeInput.on("input", function (e) {
+                    let minVal = parseInt(rangeInput.eq(0).val()),
+                        maxVal = parseInt(rangeInput.eq(1).val());
+                    minPriceInput.val(minVal);
+                    maxPriceInput.val(maxVal);
+                    $("#minPriceDisplay").html(minVal);
+                    $("#maxPriceDisplay").html(maxVal);
+
+                    if (maxVal - minVal < priceGap) {
+                        if ($(e.target).hasClass("range-min")) {
+                            rangeInput.eq(0).val(maxVal - priceGap);
+                        } else {
+                            rangeInput.eq(1).val(minVal + priceGap);
+                        }
+                    } else {
+                        progress.css("left", ((minVal - rangeInput.eq(0).attr("min")) / (rangeInput.eq(0).attr("max") - rangeInput.eq(0).attr("min"))) * 100 + "%");
+                        progress.css("right", 100 - ((maxVal - rangeInput.eq(1).attr("min"))/ (rangeInput.eq(1).attr("max") - rangeInput.eq(1).attr("min"))) * 100 + '%');
+                    }
+
+                    $('.price-range-slider').submit();
+                });
+
             }, // end misc
         }, // end ui
         //utils: {
