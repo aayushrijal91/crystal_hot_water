@@ -50,38 +50,180 @@ if (woocommerce_product_loop()) {
 				<div class="container">
 					<div class="row">
 						<div class="col-12 col-md-3">
-							<div class="h-100 bg-light py-5 px-4">
-								<?php
-								$parent_category_name = 'Product Type';
+							<aside class="shopFilter h-100 bg-light py-5 px-4">
+								<section class="category pb-5">
+									<?php
+									$parent_category_name = 'Product Type';
 
-								$parent_category = get_term_by('name', $parent_category_name, 'product_cat');
+									$parent_category = get_term_by('name', $parent_category_name, 'product_cat');
 
-								if ($parent_category && !is_wp_error($parent_category)) {
-									$args = array(
-										'taxonomy' => 'product_cat',
-										'child_of' => $parent_category->term_id,
-										'hide_empty' => false,
-									);
+									if ($parent_category && !is_wp_error($parent_category)) {
+										$args = array(
+											'taxonomy' => 'product_cat',
+											'child_of' => $parent_category->term_id,
+											'hide_empty' => false,
+										);
 
-									$subcategories = get_terms($args);
+										$subcategories = get_terms($args);
 
-									if (!empty($subcategories)) { ?>
-										<p class="fw-800 text-dark fs-18">Product Type</p>
-										<ul>
-											<?php foreach ($subcategories as $subcategory) { ?>
-												<li>
-													<label><input type="checkbox" name="subcategory-checkbox" value="<?= esc_attr($subcategory->slug) ?>"> <?= esc_html($subcategory->name) ?></label>
-												</li>
-											<?php } ?>
-										</ul>
-								<?php } else {
-										echo 'No subcategories found for ' . $parent_category_name;
+										if (!empty($subcategories)) { ?>
+											<p class="categoryTitle">Product Type</p>
+											<ul class="categoryList">
+												<?php foreach ($subcategories as $subcategory) { ?>
+													<li>
+														<label><input type="checkbox" name="subcategory-checkbox" value="<?= esc_attr($subcategory->slug) ?>"> <?= esc_html($subcategory->name) ?></label>
+													</li>
+												<?php } ?>
+											</ul>
+									<?php } else {
+											echo 'No subcategories found for ' . $parent_category_name;
+										}
+									} else {
+										echo 'Parent category not found.';
 									}
-								} else {
-									echo 'Parent category not found.';
-								}
-								?>
-							</div>
+									?>
+								</section>
+
+								<section class="category pb-5">
+									<?php
+									$parent_category_name = 'Brand';
+
+									$parent_category = get_term_by('name', $parent_category_name, 'product_cat');
+
+									if ($parent_category && !is_wp_error($parent_category)) {
+										$args = array(
+											'taxonomy' => 'product_cat',
+											'child_of' => $parent_category->term_id,
+											'hide_empty' => false,
+										);
+
+										$subcategories = get_terms($args);
+
+										if (!empty($subcategories)) { ?>
+											<p class="categoryTitle">Brand</p>
+											<ul class="categoryList">
+												<?php foreach ($subcategories as $subcategory) { ?>
+													<li>
+														<label><input type="checkbox" name="subcategory-checkbox" value="<?= esc_attr($subcategory->slug) ?>"> <?= esc_html($subcategory->name) ?></label>
+													</li>
+												<?php } ?>
+											</ul>
+									<?php } else {
+											echo 'No subcategories found for ' . $parent_category_name;
+										}
+									} else {
+										echo 'Parent category not found.';
+									}
+									?>
+								</section>
+
+								<section class="category pb-5">
+									<form method="get">
+										<input type="number" name="min_price" placeholder="Min Price" value="<?php echo esc_attr($_GET['min_price'] ?? ''); ?>">
+										<input type="number" name="max_price" placeholder="Max Price" value="<?php echo esc_attr($_GET['max_price'] ?? ''); ?>">
+										<button type="submit">Apply Filter</button>
+									</form>
+								</section>
+
+								<section class="category pb-5">
+									<?php
+									$parent_category_name = 'Gas Type';
+
+									$parent_category = get_term_by('name', $parent_category_name, 'product_cat');
+
+									if ($parent_category && !is_wp_error($parent_category)) {
+										$args = array(
+											'taxonomy' => 'product_cat',
+											'child_of' => $parent_category->term_id,
+											'hide_empty' => false,
+										);
+
+										$subcategories = get_terms($args);
+
+										if (!empty($subcategories)) { ?>
+											<p class="categoryTitle">Gas Type</p>
+											<ul class="categoryList">
+												<?php foreach ($subcategories as $subcategory) { ?>
+													<li>
+														<label><input type="checkbox" name="subcategory-checkbox" value="<?= esc_attr($subcategory->slug) ?>"> <?= esc_html($subcategory->name) ?></label>
+													</li>
+												<?php } ?>
+											</ul>
+									<?php } else {
+											echo 'No subcategories found for ' . $parent_category_name;
+										}
+									} else {
+										echo 'Parent category not found.';
+									}
+									?>
+								</section>
+
+								<section class="category pb-5">
+									<?php
+									$parent_category_name = 'Energy Star Rating';
+
+									$parent_category = get_term_by('name', $parent_category_name, 'product_cat');
+
+									if ($parent_category && !is_wp_error($parent_category)) {
+										$args = array(
+											'taxonomy' => 'product_cat',
+											'child_of' => $parent_category->term_id,
+											'hide_empty' => false,
+										);
+
+										$subcategories = get_terms($args);
+
+										if (!empty($subcategories)) { ?>
+											<p class="categoryTitle">Energy Star Rating</p>
+											<ul class="categoryList">
+												<?php foreach ($subcategories as $subcategory) { ?>
+													<li>
+														<label><input type="checkbox" name="subcategory-checkbox" value="<?= esc_attr($subcategory->slug) ?>"> <?= esc_html($subcategory->name) ?></label>
+													</li>
+												<?php } ?>
+											</ul>
+									<?php } else {
+											echo 'No subcategories found for ' . $parent_category_name;
+										}
+									} else {
+										echo 'Parent category not found.';
+									}
+									?>
+								</section>
+
+								<section class="category">
+									<?php
+									$parent_category_name = 'Location';
+
+									$parent_category = get_term_by('name', $parent_category_name, 'product_cat');
+
+									if ($parent_category && !is_wp_error($parent_category)) {
+										$args = array(
+											'taxonomy' => 'product_cat',
+											'child_of' => $parent_category->term_id,
+											'hide_empty' => false,
+										);
+
+										$subcategories = get_terms($args);
+
+										if (!empty($subcategories)) { ?>
+											<p class="categoryTitle">Location</p>
+											<ul class="categoryList">
+												<?php foreach ($subcategories as $subcategory) { ?>
+													<li>
+														<label><input type="checkbox" name="subcategory-checkbox" value="<?= esc_attr($subcategory->slug) ?>"> <?= esc_html($subcategory->name) ?></label>
+													</li>
+												<?php } ?>
+											</ul>
+									<?php } else {
+											echo 'No subcategories found for ' . $parent_category_name;
+										}
+									} else {
+										echo 'Parent category not found.';
+									}
+									?>
+								</section>
+							</aside>
 						</div>
 						<div class="col-12 col-md-9">
 							<div class="row g-3" id="filtered-products">
@@ -90,9 +232,8 @@ if (woocommerce_product_loop()) {
 									<div class="col-md-6 col-lg-4 col-xl-3">
 										<article class="product-card">
 											<div class="d-flex justify-content-center"><?= woocommerce_template_loop_product_thumbnail() ?></div>
-											<a href="<?= the_permalink() ?>" class="text-primary highlight-primary text-capitalize fw-800 fs-18 pt-3"><?= the_title(); ?></a>
+											<a href="<?= the_permalink() ?>" class="text-grey highlight-primary-product text-capitalize fs-16 pt-3"><?= $product->get_short_description() ?></a>
 											<p class="fw-500"><?= $product->get_sku() ?></p>
-											<p class="text-grey text-capitalize fs-14"><?= $product->get_short_description() ?></p>
 											<p class="text-primary fs-18 fw-800"><?= woocommerce_template_loop_price() ?></p>
 											<?= woocommerce_template_loop_add_to_cart() ?>
 										</article>
@@ -100,30 +241,6 @@ if (woocommerce_product_loop()) {
 								<?php endwhile;
 								?>
 							</div>
-							<!-- <div class="row g-3">
-								<?php while (have_posts()) {
-									the_post();
-
-									/**
-									 * Hook: woocommerce_shop_loop.
-									 */
-									do_action('woocommerce_shop_loop');
-
-									// wc_get_template_part('content', 'product');
-								?>
-									<div class="col-md-6 col-lg-4 col-xl-3">
-										<article class="product-card">
-											<div class="d-flex justify-content-center"><?= woocommerce_template_loop_product_thumbnail() ?></div>
-											<a href="<?= the_permalink() ?>" class="text-primary highlight-primary text-capitalize fw-800 fs-18 pt-3"><?= the_title(); ?></a>
-											<p class="fw-500"><?= $product->get_sku() ?></p>
-											<p class="text-grey text-capitalize fs-14"><?= $product->get_short_description() ?></p>
-											<p class="text-primary fs-18 fw-800"><?= woocommerce_template_loop_price() ?></p>
-											<?= woocommerce_template_loop_add_to_cart() ?>
-										</article>
-									</div>
-								<?php
-								} ?>
-							</div> -->
 						</div>
 					</div>
 				</div>

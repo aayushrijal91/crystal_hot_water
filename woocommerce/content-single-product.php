@@ -36,7 +36,7 @@ if (post_password_required()) {
 <main class="product-page py-5 py-md-7">
 	<div class="container">
 		<div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
-			<div class="row gy-5">
+			<div class="row gy-5 gx-xl-6">
 				<div class="col-lg-6">
 					<div class="product-image">
 						<?= get_the_post_thumbnail($product->get_id(), 'full'); ?>
@@ -52,8 +52,8 @@ if (post_password_required()) {
 					<article class="py-4 lh-1_67 description">
 						<?= $product->get_description() ?>
 					</article>
-					<div class="row align-items-center">
-						<div class="col-4">
+					<div class="row align-items-center gx-xl-5">
+						<div class="col-auto">
 							<p class="text-primary fs-30 fw-700"><?= $product->get_price_html() ?></p>
 						</div>
 						<div class="col">

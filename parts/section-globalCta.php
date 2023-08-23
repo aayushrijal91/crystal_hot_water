@@ -9,7 +9,7 @@
                 <article class="part-cta mx-2 mx-md-0">
                     <img src="<?= $image['url'] ?>" class="w-100 pb-5" alt="<?= $image['url'] ?>">
                     <div class="cta-content">
-                        <img class="cta-icon" src="http://localhost/crystal_hot_water/wp-content/uploads/2023/08/cta-icon.png" alt="<?= bloginfo('name') ?>">
+                        <img class="cta-icon" src="<?= get_site_url() ?>/wp-content/uploads/2023/08/cta-icon.png" alt="<?= bloginfo('name') ?>">
                         <p class="font-articulat fs-14"><?= $product_name ?></p>
                         <p class="fw-700"><?= $price ?></p>
                     </div>

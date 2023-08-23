@@ -66,6 +66,12 @@ img {
     }
 }
 
+.highlight-primary-product {
+    strong {
+        color: $primary;
+    }
+}
+
 .text-italic {
     font-style: italic;
 }

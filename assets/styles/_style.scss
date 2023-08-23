@@ -132,6 +132,29 @@ main.our-locations-page {
 
 main.shop-page {
     section.shop {
+        aside.shopFilter {
+            section.category {
+                .categoryTitle {
+                    font-weight: 800;
+                    color: $dark;
+                    font-size: 18px;
+                    padding-bottom: 30px;
+                }
+
+                .categoryList {
+                    padding-inline-start: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    li {
+                        color: grey;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
         .product-card {
             border: 0.5px solid #A4A4A4;
             height: 100%;
@@ -262,6 +285,7 @@ main.inner-service-page {
             padding: 21px 18px;
             gap: 17px;
             line-height: 1;
+            margin: 0 8px;
 
             .number {
                 width: 37px;

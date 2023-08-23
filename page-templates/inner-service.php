@@ -54,31 +54,31 @@ get_template_part('parts/section', 'banner');
 
     <section class="steps bg-secondary">
         <div class="container">
-            <div class="row g-3">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="step-box">
-                        <p class="number">1</p>
-                        <p>Call Us, Speak <strong>To An Expert</strong></p>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="step-box">
-                        <p class="number">2</p>
-                        <p><strong>Consultation</strong> or onsite</p>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="step-box">
-                        <p class="number">3</p>
-                        <p>Deliver A <strong>Free Quote</strong></p>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <article class="step-box">
-                        <p class="number">4</p>
-                        <p><strong>Complete Work</strong> And Payment</p>
-                    </article>
-                </div>
+            <div class="inpectionSteps">
+                <article class="step-box">
+                    <p class="number">1</p>
+                    <p>Call Us, Speak <strong>To An Expert</strong></p>
+                </article>
+                <article class="step-box">
+                    <p class="number">2</p>
+                    <p><strong>Consultation</strong> or onsite</p>
+                </article>
+                <article class="step-box">
+                    <p class="number">3</p>
+                    <p>Deliver A <strong>Free Quote</strong></p>
+                </article>
+                <article class="step-box">
+                    <p class="number">4</p>
+                    <p><strong>Complete Work</strong> With Payment</p>
+                </article>
+                <article class="step-box">
+                    <p class="number">4</p>
+                    <p><strong>Clean Up</strong> And Payment</p>
+                </article>
+                <article class="step-box">
+                    <p class="number">4</p>
+                    <p><strong>Review</strong> And Follow Up</p>
+                </article>
             </div>
         </div>
     </section>

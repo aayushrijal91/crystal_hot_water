@@ -8,7 +8,7 @@
             </div>
             <div class="col-12 col-lg-7">
                 <article class="animated-image-wrapper position-relative d-flex justify-content-center align-items-center">
-                    <img src="http://localhost/crystal_hot_water/wp-content/uploads/2023/08/hot-water-system-bathtub.jpg" class="w-100 rounded-11 object-fit-cover h-100" alt="">
+                    <img src="<?= get_site_url() ?>/wp-content/uploads/2023/08/hot-water-system-bathtub.jpg" class="w-100 rounded-11 object-fit-cover h-100" alt="">
                     <img src="<?= get_template_directory_uri() ?>/images/lib/cloud.gif" class="animated-image" alt="<?= bloginfo('name') ?>">
                 </article>
             </div>
@@ -22,7 +22,7 @@
                 <div class="row g-2">
                     <div class="col-6">
                         <button class="w-100 bg-transparent">
-                            <a href="#" class="btn btn-primary fw-700 d-flex w-100 text-white">Contact Our Team</a>
+                            <a href="<?= get_site_url() ?>/contact-us" class="btn btn-primary fw-700 d-flex w-100 text-white">Contact Our Team</a>
                         </button>
                     </div>
                     <div class="col-6">

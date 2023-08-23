@@ -116,6 +116,29 @@ jQuery(function ($) {
                         autoplay: true,
                     });
                 }
+
+                $('.inpectionSteps').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    autoplay: true,
+                    responsive: [{
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },{
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },{
+                        breakpoint: 540,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }]
+                })
             }, // end misc
         }, // end ui
         //utils: {
