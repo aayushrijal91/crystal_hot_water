@@ -43,8 +43,8 @@ if (post_password_required()) {
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<h2 class="fs-60 highlight-primary text-capitalize fw-800 lh-1">
-						<?= the_title(); ?>
+					<h2 class="fs-60 highlight-primary-product text-capitalize fw-800 lh-1">
+						<?= $product->get_short_description() ?>
 					</h2>
 					<?php if ($product->get_sku()) : ?>
 						<p class="text-grey pt-3">SKU: <?= $product->get_sku() ?></p>

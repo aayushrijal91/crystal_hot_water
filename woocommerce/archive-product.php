@@ -50,8 +50,8 @@ get_template_part('parts/section', 'banner');
 			if (wc_get_loop_prop('total')) { ?>
 
 				<div class="container pb-5">
-					<div class="row">
-						<div class="col-12 col-md-3">
+					<div class="row gy-5">
+						<div class="col-12 col-lg-3">
 							<aside class="shopFilter h-100 bg-light py-5 px-4">
 								<section class="category pb-5">
 									<p class="categoryTitle pb-3">Product Search</p>
@@ -249,7 +249,7 @@ get_template_part('parts/section', 'banner');
 								</section>
 							</aside>
 						</div>
-						<div class="col-12 col-md-9">
+						<div class="col-12 col-lg-9">
 							<div class="row g-3" id="filtered-products">
 								<?php
 								while (have_posts()) : the_post(); ?>

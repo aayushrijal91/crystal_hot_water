@@ -65,7 +65,6 @@ function slick_assets() {
 function slick_fonts() {
     return gulp.src('./node_modules/slick-carousel/slick/fonts/**/*')
         .pipe(gulp.dest('./styles/fonts/'));
-
 }
 
 function vendor_scripts() {
