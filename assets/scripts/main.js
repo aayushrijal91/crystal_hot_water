@@ -108,7 +108,7 @@ jQuery(function ($) {
                     });
                 });
 
-                if ($(window).width() < 540) {
+                if ($(window).width() < 900) {
                     $('#flexible-payment-options').slick({
                         slidesToShow: 1,
                         slidesToScroll: 1,

@@ -46,18 +46,14 @@ $suburbArray = array('{suburb}', '{Suburb}', '{SUBURB}', '(suburb)', '(SUBURB)')
                 <div class="col-12 col-lg-auto">
                     <p class="highlight-primary fs-30 fw-600 text-dark text-capitalize">Flexible Payment <span class="fw-800">Options</span></p>
                 </div>
-                <div class="col-12 col-md-5 col-lg-4 col-xl-3">
-                    <div class="row align-items-center justify-content-between">
+                <div class="col col-lg-7 d-none d-md-block">
+                    <div class="row align-items-center justify-content-around">
                         <div class="col-auto">
                             <img src="<?= get_site_url() ?>/wp-content/uploads/2023/08/eftpos.png" alt="<?= bloginfo('name') ?>">
                         </div>
                         <div class="col-auto">
                             <p class="text-dark fs-20"><strong>Direct</strong> Deposit</p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 col-lg-3 col-xl-2">
-                    <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <p class="text-dark fs-20 fw-600">Credit Card</p>
                         </div>
@@ -65,6 +61,18 @@ $suburbArray = array('{suburb}', '{Suburb}', '{SUBURB}', '(suburb)', '(SUBURB)')
                             <p class="text-dark fs-20 fw-600">Cash</p>
                         </div>
                     </div>
+                </div>
+                <div class="col-12 d-flex justify-content-center d-md-none">
+                    <img src="<?= get_site_url() ?>/wp-content/uploads/2023/08/eftpos.png" alt="<?= bloginfo('name') ?>">
+                </div>
+                <div class="col-12 d-md-none">
+                    <p class="text-dark fs-20"><strong>Direct</strong> Deposit</p>
+                </div>
+                <div class="col-12 d-md-none">
+                    <p class="text-dark fs-20 fw-600">Credit Card</p>
+                </div>
+                <div class="col-12 d-md-none">
+                    <p class="text-dark fs-20 fw-600">Cash</p>
                 </div>
             </div>
         </div>

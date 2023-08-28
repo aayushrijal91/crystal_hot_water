@@ -82,7 +82,7 @@ if (post_password_required()) {
 							<?php endif;
 							if ($product->get_weight()) : ?>
 								<p class="text-grey lh-1_67 fw-500"><strong class="text-dark">Weight:</strong <?= $product->get_weight() . get_option('woocommerce_weight_unit') ?></p>
-							<?php endif; ?>
+								<?php endif; ?>
 
 						</div>
 						<div class="col-md">
@@ -116,12 +116,12 @@ if (post_password_required()) {
 				</div>
 			</div>
 
-			<div class="gallery py-8">
-				<?php
-				$gallery_image_ids = $product->get_gallery_image_ids();
+			<?php
+			$gallery_image_ids = $product->get_gallery_image_ids();
 
-				// Display the gallery images
-				if (!empty($gallery_image_ids)) { ?>
+			// Display the gallery images
+			if (!empty($gallery_image_ids)) { ?>
+				<div class="gallery pt-8">
 					<div class="row gy-3">
 						<?php foreach ($gallery_image_ids as $image_id) {
 							// Get the image URL
@@ -134,22 +134,14 @@ if (post_password_required()) {
 							</div>
 						<?php } ?>
 					</div>
-				<?php } else {
-					echo "No gallery images found for this product.";
-				}
-				?>
-			</div>
-
-			<div class="reviews">
-				<?php //comments_template(); 
-				?>
-			</div>
+				</div>
+			<?php } ?>
 
 			<?php
 			$related_products = wc_get_related_products(get_the_ID(), 4); // Get related product IDs
 
 			if (!empty($related_products)) { ?>
-				<div class="related-products row gy-3">
+				<div class="related-products row gy-3 pt-8">
 					<?php foreach ($related_products as $related_product_id) {
 						$related_product = wc_get_product($related_product_id);
 
