@@ -219,12 +219,10 @@ section.part-getStartedForm {
 
         @include media-breakpoint-down(lg) {
             margin: 25px 0;
-            // padding: 24px;
         }
 
         @include media-breakpoint-down(sm) {
             margin: 20px 0;
-            // padding: 24px 16px;
         }
 
         .accordion-head {
@@ -296,5 +294,18 @@ section.slide-nav {
 
     &.active {
         transform: translateX(0);
+    }
+}
+
+.woocommerce-input-wrapper {
+    input, select, textarea {
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        background: $white;
+        padding: 8px 16px;
+    }
+    
+    input, select {
+        height: 62px;
     }
 }
