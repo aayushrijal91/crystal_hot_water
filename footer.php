@@ -68,18 +68,18 @@
                     </ul>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
+                <!-- <div class="col-md-6 col-lg-3">
                     <p class="fw-700 pb-3 pb-md-4">Shop</p>
 
-                    <ul class="menu_list">
-                        <li><a href="" class="text-white">Electric Instantaneous</a></li>
-                        <li><a href="" class="text-white">Electric Storage</a></li>
-                        <li><a href="" class="text-white">Gas Continuous Hot Water System</a></li>
-                        <li><a href="" class="text-white">Gas Storage Hot Water System</a></li>
-                        <li><a href="" class="text-white">Heat Pump</a></li>
-                        <li><a href="" class="text-white">Solar Hot Water System</a></li>
-                    </ul>
-                </div>
+                    <?php wp_nav_menu(array(
+                        'menu' => 'Shop',
+                        'item_class' => 'nav-item',
+                        'link_class' => 'nav-link',
+                        'container_class' => 'footer_menu',
+                        'container_id' => '',
+                        'menu_class' => 'menu_list'
+                    )); ?>
+                </div> -->
 
                 <div class="col-md-4 col-lg-2">
                     <p class="fw-700 pb-3 pb-md-4">Support</p>
