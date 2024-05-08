@@ -8,7 +8,7 @@ if (have_posts()) {
         the_post();
 ?>
         <section class="py-xl-6 py-md-5 py-3">
-            <div class="container">
+            <div class="container description">
                 <?php the_content(); ?>
             </div>
         </section>

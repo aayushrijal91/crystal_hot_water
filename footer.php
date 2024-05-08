@@ -133,7 +133,7 @@
     <section class="footer-bottom">
         <div class="container">
             <div class="row align-items-center justify-content-between gy-4">
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-6">
                     <div class="row align-items-center justify-content-center gy-4">
                         <div class="col-auto col-md-4">
                             <a href="<?= get_site_url() ?>">
@@ -141,7 +141,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-lg-8">
-                            <p class="text-white fs-14 text-center text-lg-start">Copyright <?= date('Y') ?> <span class="px-4">|</span> <?= bloginfo('name') ?></p>
+                            <p class="text-white fs-14 text-center text-lg-start">Copyright <?= date('Y') ?> <span class="px-3">|</span> <?= bloginfo('name') ?><span class="px-3">|</span><a href="<?= home_url() ?>/privacy-policies" class="text-white">Privacy Policies</a></p>
                         </div>
                     </div>
                 </div>
