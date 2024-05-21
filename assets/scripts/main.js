@@ -146,7 +146,7 @@ jQuery(function ($) {
                 const progress = $(".slider .progress");
                 let priceGap = 1000;
                 progress.css("left", ((minPriceInput.val() - rangeInput.eq(0).attr("min")) / (rangeInput.eq(0).attr("max") - rangeInput.eq(0).attr("min"))) * 100 + "%");
-                progress.css("right", 100 - ((maxPriceInput.val() - rangeInput.eq(1).attr("min"))/ (rangeInput.eq(1).attr("max") - rangeInput.eq(1).attr("min"))) * 100 + '%');
+                progress.css("right", 100 - ((maxPriceInput.val() - rangeInput.eq(1).attr("min")) / (rangeInput.eq(1).attr("max") - rangeInput.eq(1).attr("min"))) * 100 + '%');
 
                 rangeInput.on("input", function (e) {
                     let minVal = parseInt(rangeInput.eq(0).val()),
@@ -164,11 +164,32 @@ jQuery(function ($) {
                         }
                     } else {
                         progress.css("left", ((minVal - rangeInput.eq(0).attr("min")) / (rangeInput.eq(0).attr("max") - rangeInput.eq(0).attr("min"))) * 100 + "%");
-                        progress.css("right", 100 - ((maxVal - rangeInput.eq(1).attr("min"))/ (rangeInput.eq(1).attr("max") - rangeInput.eq(1).attr("min"))) * 100 + '%');
+                        progress.css("right", 100 - ((maxVal - rangeInput.eq(1).attr("min")) / (rangeInput.eq(1).attr("max") - rangeInput.eq(1).attr("min"))) * 100 + '%');
                     }
 
                     $('.price-range-slider').submit();
                 });
+
+
+                function update_cart_count() {
+                    $.ajax({
+                        type: 'POST',
+                        url: ajax_cart_params.ajax_url,
+                        data: {
+                            action: 'update_cart_count'
+                        },
+                        success: function (response) {
+                            if (response) {
+                                $('.cart-item-count').html(response);
+                            }
+                        }
+                    });
+                }
+
+                $(document.body).on('added_to_cart', update_cart_count);
+
+                // Initial load of cart count
+                update_cart_count();
 
             }, // end misc
         }, // end ui

@@ -277,3 +277,21 @@ function custom_search_filter($query) {
     return $query;
 }
 add_action('pre_get_posts','custom_search_filter');
+
+function enqueue_custom_scripts() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('custom-ajax-cart', get_template_directory_uri() . '/scripts/scripts.min.js', array('jquery'), null, true);
+    wp_localize_script('custom-ajax-cart', 'ajax_cart_params', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+function update_cart_count_callback() {
+    if (WC()->cart) {
+        echo WC()->cart->get_cart_contents_count();
+    }
+    wp_die(); // Always end your AJAX functions with wp_die()
+}
+add_action('wp_ajax_update_cart_count', 'update_cart_count_callback');
+add_action('wp_ajax_nopriv_update_cart_count', 'update_cart_count_callback');
